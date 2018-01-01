@@ -2,6 +2,7 @@ const Canvas = require('canvas')
 const {ImageData} = Canvas
 const path = require('path')
 const fs = require('fs-extra')
+const os = require('os')
 const command = require('./command')
 const snapshot = require('./snapshot')
 
@@ -30,7 +31,7 @@ let screen
       }
     }
 
-    const temp = path.join(__dirname, '../temp/screen.png')
+    const temp = path.join(os.tmpdir(), '大家来找茬腾讯版.png')
     await fs.writeFile(temp, canvas.toBuffer())
     command(`open ${temp}`)
   } catch (e) {
