@@ -4,6 +4,8 @@ const path = require('path')
 const fs = require('fs-extra')
 const snapshot = require('../src/snapshot')
 
+// 请使用手机截屏，在 Photoshop 等工具中，精确测量两幅图的坐标和宽高
+// 下面是我的（小米 MIX1）手机数据，请根据情况调整
 const r1 = {top: 227, left: 214, width: 824, height: 824}
 const r2 = {top: r1.top + r1.height + 36, left: 214, width: 824, height: 824}
 const padding = 80
