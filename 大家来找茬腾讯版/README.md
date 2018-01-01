@@ -8,10 +8,12 @@
 - [ ] 自动点击手机屏幕
 
 ## 运行
-- Node.js 8.x 以上
-- 安卓手机连接数据线，并打开 USB 调试
+- 安装 Node.js 8.x 以上
+- 安装 adb 工具
+- 安卓手机连接数据线
+- 打开 USB 调试
 - 安装依赖 `npm i`
-- 查找不同 `npm start`
+- 运行脚本 `npm start`
 
 ## 效果
 <img width="320" src="https://user-images.githubusercontent.com/8413791/34465817-e8c53292-eefa-11e7-8fde-d7ece24bcfab.png" alt="效果图">
