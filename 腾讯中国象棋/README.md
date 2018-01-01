@@ -20,6 +20,11 @@
 
 <table>
   <tr>
+    <th>电脑</th>
+    <th>手机</th>
+    <th>结果</th>
+  </tr>
+  <tr>
     <td>
       <img width="320" src="https://user-images.githubusercontent.com/8413791/34466007-bb99e8f2-ef00-11e7-8cc9-782b57b0f78c.png" alt="电脑">
     </td>
@@ -32,7 +37,6 @@
   </tr>
 <table>
 
-成功吓跑对手 O(∩_∩)O 
-
+成功吓跑对手
 
 
