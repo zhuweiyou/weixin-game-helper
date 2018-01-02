@@ -3,7 +3,7 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "canvas": "^1.6.9",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "fs-extra": "^5.0.0"
   }
 }
