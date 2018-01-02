@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 const os = require('os')
-const {Image} = require('canvas')
+const {Image} = require('canvas-prebuilt')
 const command = require('./command')
 
 module.exports = async () => {

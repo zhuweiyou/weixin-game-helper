@@ -1,4 +1,4 @@
-const Canvas = require('canvas')
+const Canvas = require('canvas-prebuilt')
 const {ImageData} = Canvas
 const path = require('path')
 const fs = require('fs-extra')
