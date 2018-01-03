@@ -3,7 +3,7 @@
 ## 运行
 - 安装 Node.js 8.x 以上
 - 安装依赖 `npm i`
-- 修改 [src/index.js](src/index.js) 中 `session_id` 
+- 修改 [src/index.js](src/index.js) 第 42 行的 `session_id` 
 - 刷分 `npm start`
 
 ## 其它
