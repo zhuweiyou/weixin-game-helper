@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "request-promise": "^4.2.2"
+  }
+}
