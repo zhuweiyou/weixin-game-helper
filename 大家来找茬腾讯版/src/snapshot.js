@@ -16,5 +16,5 @@ module.exports = async () => {
     fs.unlink(filePath),
     command(`adb shell rm /sdcard/${fileName}`)
   ])
-  return image
+  return {image, buffer}
 }

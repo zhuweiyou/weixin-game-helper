@@ -1,11 +1,8 @@
 # 大家来找茬腾讯版
 
-待完善
-
 ## 功能
-- [x] 识别不同点，标注红色
-- [x] 打开标注后的图片
-- [ ] 自动点击手机屏幕
+- [x] 识别两张图的不同点，标注红色
+- [x] 手动点击标红的区域，完成找茬
 
 ## 运行
 - 安装 Node.js 8.x 以上
@@ -15,5 +12,9 @@
 - 安装依赖 `npm i`
 - 运行脚本 `npm start`
 
+成功后，会自动打开一个网页，按照页面提示操作即可。同时请关注终端打印的错误消息。
+
+为了看得更清楚，使用 1:1 的比例显示。如果觉得图片太大可以自行浏览器缩放 `ctrl +/-`
+
 ## 效果
-<img width="320" src="https://user-images.githubusercontent.com/8413791/34465817-e8c53292-eefa-11e7-8fde-d7ece24bcfab.png" alt="效果图">
+<img width="640" src="https://user-images.githubusercontent.com/8413791/34507750-3ef37780-f074-11e7-9690-a6286e5b1c4b.png" alt="效果图">

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>大家来找茬腾讯版</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+  </head>
+  <body>
+    <div class="wrap">
+      <fieldset>
+        <legend>操作</legend>
+        <button id="find">点击找茬</button>
+        <ol>
+          <li>点击上面的找茬按钮</li>
+          <li>点击图片上标红的区域</li>
+        </ol>
+      </fieldset>
+      <fieldset>
+        <legend>图片</legend>
+        <img id="screen" src="" alt="">
+      </fieldset>
+    </div>
+    <script>
+      var screen = document.querySelector('#screen')
+      var find = document.querySelector('#find')
+
+      screen.onload = function () {
+        find.disabled = false
+        find.textContent = '点击找茬'
+      }
+
+      screen.addEventListener('click', function (event) {
+        fetch('/click', {
+          method: 'POST',
+          credentials: 'include',
+          body: JSON.stringify({
+            x: event.offsetX,
+            y: event.offsetY
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+      })
+
+      find.addEventListener('click', function () {
+        find.disabled = true
+        find.textContent = '正在找茬...'
+        screen.src = '/find?' + Math.random()
+      })
+    </script>
+  </body>
+</html>
