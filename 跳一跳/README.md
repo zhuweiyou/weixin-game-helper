@@ -1,10 +1,15 @@
 # 跳一跳
 
+跳一跳会更新，不保证一直有效
+
 ## 运行
 - 安装 Node.js 8.x 以上
 - 安装依赖 `npm i`
-- 修改 [src/index.js](src/index.js) 第 42 行的 `session_id` 
+- 抓小游戏的 https 请求，获取 `session_id`，填入 [src/index.js](src/index.js) 中
 - 刷分 `npm start`
+
+## 效果
+<img width="320" src="https://user-images.githubusercontent.com/8413791/34549243-4401b754-f142-11e7-80dd-bae7bdba3765.png" alt="截图">
 
 ## 其它
 - [解包微信 APK，拿到小游戏源码，得到签名方法，直接发包改数据](https://github.com/jin10086/wxgameHacker)
