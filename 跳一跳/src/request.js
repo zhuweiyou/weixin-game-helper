@@ -6,7 +6,7 @@ module.exports = async ({session_id, score}) => {
   const request = axios.create({
     baseURL: 'https://mp.weixin.qq.com/wxagame/',
     headers: {
-      'User-Agent': 'MicroMessenger/6.6.1.1220(0x26060133) NetType/WIFI Language/zh_CN',
+      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_1 like Mac OS X) AppleWebKit/604.4.7 (KHTML, like Gecko) Mobile/15C153 MicroMessenger/6.6.1 NetType/WIFI Language/zh_CN',
       'Referer': 'https://servicewechat.com/wx7c8d593b2c3a7703/' + version + '/page-frame.html',
       'Host': 'mp.weixin.qq.com',
       'Content-Type': 'application/json; charset=UTF-8',
