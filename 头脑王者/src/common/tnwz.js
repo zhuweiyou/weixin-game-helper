@@ -22,7 +22,7 @@ module.exports = {
   async crawl (players) {
     try {
       this._players = players
-      this._roomID = -1
+      this._roomId = -1
       // 进入房间
       for (const player of players) {
         await this.intoRoom(player)
@@ -97,7 +97,7 @@ module.exports = {
   async intoRoom (player) {
     const data = this._createParamsWithSign(player)
     const res = await request.post('/question/bat/intoRoom', data)
-    this._roomID = res.data.roomId
+    this._roomId = res.data.roomId
     return res
   },
   async beginFight () {
@@ -107,11 +107,11 @@ module.exports = {
     {uid: '', token: ''},
     {uid: '', token: ''}
   ],
-  _roomID: -1,
+  _roomId: -1,
   _createParams ({uid}) {
     return {
       uid,
-      roomID: this._roomID,
+      roomID: this._roomId,
       t: Date.now()
     }
   },

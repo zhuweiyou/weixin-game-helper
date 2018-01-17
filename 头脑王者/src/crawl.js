@@ -1,6 +1,6 @@
-const TnwzApi = require('./common/tnwz-api')
+const Tnwz = require('./common/tnwz')
 
-TnwzApi.crawl([
+Tnwz.crawl([
   {
     uid: '',
     token: ''
