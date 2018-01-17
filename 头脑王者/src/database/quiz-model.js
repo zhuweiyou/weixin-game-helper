@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-require('./mongo')
 
 const QuizSchema = new mongoose.Schema({
   quiz: {
