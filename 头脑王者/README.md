@@ -1,11 +1,21 @@
 # 头脑王者
 
-> 正在开发中
-
 ## 环境
 - Node.js 8.x 以上
 - MongoDB
+- 安装依赖 `npm i`
 
-## 运行 
-- 爬取题库 `npm run crawl`
-- 智能答题 `npm run robot`
+## 功能 
+
+### 爬取题库 
+> 爬题思路：不断进行好友对战获取题目，随意答题会返回正确答案，存入数据库，重复的忽略
+
+分别使用两个微信号登录游戏，抓包 login 返回的 uid 和 token 字段
+
+填入 [src/crawl/index.js](src/crawl/index.js) 中，执行 `npm run crawl` 开始自动爬取
+
+### 智能答题 
+> 正在开发中
+
+## 截图
+

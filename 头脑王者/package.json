@@ -1,12 +1,11 @@
 {
   "scripts": {
     "crawl": "node src/crawl",
-    "robot": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/robot.js"
+    "robot": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/robot/index.js"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
     "axios": "^0.17.1",
-    "mongoose": "^4.13.9",
-    "mongoose-timestamp": "^0.6.0"
+    "mongoose": "^4.13.9"
   }
 }
