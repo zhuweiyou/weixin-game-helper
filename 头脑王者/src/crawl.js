@@ -1,6 +1,6 @@
-const Crawl = require('./crawl')
+const TnwzApi = require('./common/tnwz-api')
 
-new Crawl([
+TnwzApi.crawl([
   {
     uid: '',
     token: ''
@@ -9,4 +9,4 @@ new Crawl([
     uid: '',
     token: ''
   }
-]).start()
+])
