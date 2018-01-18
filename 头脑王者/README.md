@@ -26,7 +26,7 @@
 
 ### 答题辅助 
 
-执行 `sudo anyproxy --root` 生成 RootCA，将生成的证书安装到手机上，并在手机上设置代理 IP（电脑的局域网 IP） 和 端口（8001）
+执行 `sudo anyproxy-ca` 生成 RootCA，将生成的证书安装到手机上，并在手机上设置代理 IP（电脑的局域网 IP） 和 端口（8001）
 
 一切都配置好之后，**完全退出游戏进程**，执行 `npm run robot`，再重新进入游戏
 
@@ -35,6 +35,8 @@
 如果本题不在题库里，会将本题正确答案记录到题库中
 
 ## 截图
+
+![辅助截图](https://user-images.githubusercontent.com/8413791/35084177-a7642b58-fc5d-11e7-9774-10a0b17dc39c.png)
 
 ![爬取截图](https://user-images.githubusercontent.com/8413791/35079048-36290192-fc40-11e7-9514-036e786dbe5d.png)
 
