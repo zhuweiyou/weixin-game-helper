@@ -32,7 +32,16 @@
 
 ## 截图
 
-![辅助截图](https://user-images.githubusercontent.com/8413791/35084177-a7642b58-fc5d-11e7-9774-10a0b17dc39c.png)
+<table>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/8413791/35086936-551678b8-fc69-11e7-8e58-a75ad403ffde.png" alt="王者截图">
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/8413791/35084177-a7642b58-fc5d-11e7-9774-10a0b17dc39c.png" alt="辅助截图">
+    </td>
+  </tr>
+</table>
 
 ![爬取截图](https://user-images.githubusercontent.com/8413791/35079048-36290192-fc40-11e7-9514-036e786dbe5d.png)
 
