@@ -26,7 +26,7 @@ module.exports = {
         body.data = this._findQuiz
         const newResponse = Object.assign({}, responseDetail.response)
         newResponse.body = JSON.stringify(body)
-        console.log('[题库有答案]', answer)
+        console.log('[题库有答案]', this._quiz.options[answer])
         return {
           response: newResponse
         }
