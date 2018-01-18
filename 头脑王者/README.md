@@ -2,10 +2,6 @@
 
 爬取题库、答题辅助
 
-在线题库 https://tnwz.github.io
-
-> 正在开发中
-
 ## 准备
 
 - Node.js 8.x 以上
