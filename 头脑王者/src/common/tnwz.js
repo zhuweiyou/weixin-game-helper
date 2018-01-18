@@ -11,40 +11,31 @@ const request = axios.create({
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_1 like Mac OS X) AppleWebKit/604.4.7 (KHTML, like Gecko) Mobile/15C153 MicroMessenger/6.6.1 NetType/WIFI Language/zh_CN',
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  transformRequest: [data => QueryString.stringify(data)],
-  transformResponse: [res => {
-    // console.log('\n', res, '\n')
-    return res
-  }]
+  transformRequest: [data => QueryString.stringify(data)]
 })
 
 module.exports = {
   async crawl (players) {
-    try {
-      this._players = players
-      this._roomId = -1
-      // 进入房间
-      for (const player of players) {
-        await this.intoRoom(player)
-      }
-      // 开始对战
-      await this.beginFight()
-      // 进行答题
-      await this.startAnswer()
-      // 获取结果
-      for (const player of players) {
-        await this.fightResult(player)
-      }
-      // 离开房间
-      for (const player of players) {
-        await this.leaveRoom(player)
-      }
-    } catch (e) {
-      console.error(e)
-    }
+    this._players = players
+    this._roomId = -1
+
+    // 进入房间
+    await this.intoRoom(players[0])
+    await this.intoRoom(players[1])
+    // 开始对战
+    await this.beginFight()
+    // 进行答题
+    await this.startAnswer()
+    // 获取结果
+    await this.fightResult(players[0])
+    await this.fightResult(players[1])
+    // 离开房间
+    await this.leaveRoom(players[0])
+    await this.leaveRoom(players[1])
+
     // 延迟 1 秒, 继续爬
     await sleep(1000)
-    await this.crawl()
+    await this.crawl(players)
   },
   sign (params = {}, token) {
     const md5 = crypto.createHash('md5')
@@ -53,55 +44,87 @@ module.exports = {
     return md5.digest('hex')
   },
   async leaveRoom (player) {
-    return await request.post('/question/bat/leaveRoom', this._createParamsWithSign(player))
-  },
-  async fightResult (player) {
-    return await request.post('/question/bat/fightResult', this._createParamsWithSign(player))
-  },
-  async startAnswer () {
-    for (let i = 1; i <= 5; i++) {
-      // 获取题目
-      const findQuizRes = await this.findQuiz(i)
-      let answer = 0
-      // 查找题库是否有该题
-      const one = await QuizModel.findOne({quiz: findQuizRes.data.quiz})
-      if (one) {
-        answer = one.answer
-      }
-      // 选择答案
-      const chooseAnswerRes = await this.chooseAnswer(this._players[0], i, answer)
-      await this.chooseAnswer(this._players[1], i)
-      // 保存到题库
-      if (!one) {
-        const quizModel = new QuizModel(Object.assign(findQuizRes.data, {answer: chooseAnswerRes.data.answer}))
-        await quizModel.save()
-      }
-      // 延迟，下一题
-      await sleep(200)
+    try {
+      const res = await request.post('/question/bat/leaveRoom', this._createParamsWithSign(player))
+      console.log('[leaveRoom]', res.data)
+    } catch (e) {
+      console.error(e.message)
     }
   },
-  async chooseAnswer (player, index = 1, answer = 0) {
-    const data = this._createParams(player)
-    data.quizNum = index
-    data.options = answer
-    data.sign = this.sign(data, player.token)
-    return await request.post('/question/bat/choose', data)
+  async fightResult (player) {
+    try {
+      const res = await request.post('/question/bat/fightResult', this._createParamsWithSign(player))
+      console.log('[fightResult]', res.data)
+    } catch (e) {
+      console.error(e.message)
+    }
+  },
+  async startAnswer () {
+    try {
+      for (let i = 1; i <= 5; i++) {
+        // 获取题目
+        const findQuizRes = await this.findQuiz(i)
+        let answer = 0
+        // 查找题库是否有该题
+        const one = await QuizModel.findOne({quiz: findQuizRes.data.quiz})
+        if (one) {
+          answer = one.answer
+        }
+        // 选择答案
+        const chooseAnswerRes = await this.chooseAnswer(this._players[0], i, answer)
+        await this.chooseAnswer(this._players[1], i)
+        // 保存到题库
+        if (!one) {
+          const quizModel = new QuizModel(Object.assign(findQuizRes.data, {answer: chooseAnswerRes.data.answer}))
+          await quizModel.save()
+        }
+        // 延迟，下一题
+        await sleep(200)
+      }
+    } catch (e) {
+      console.error(e.message)
+    }
+  },
+  async chooseAnswer (player, index = 1, answer = 1) {
+    try {
+      const data = this._createParams(player)
+      data.quizNum = index
+      data.options = answer
+      data.sign = this.sign(data, player.token)
+      const res = await request.post('/question/bat/choose', data)
+      console.log('[chooseAnswer]', res.data)
+    } catch (e) {
+      console.error(e.message)
+    }
   },
   async findQuiz (index = 1) {
-    const player = this._players[0]
-    const data = this._createParams(player)
-    data.quizNum = index
-    data.sign = sign(data, player.token)
-    return await request.post('/question/bat/findQuiz', data)
+    try {
+      const player = this._players[0]
+      const data = this._createParams(player)
+      data.quizNum = index
+      data.sign = this.sign(data, player.token)
+      const res = await request.post('/question/bat/findQuiz', data)
+      console.log('[findQuiz]', res.data)
+    } catch (e) {
+      console.error(e.message)
+    }
   },
   async intoRoom (player) {
-    const data = this._createParamsWithSign(player)
-    const res = await request.post('/question/bat/intoRoom', data)
-    this._roomId = res.data.roomId
-    return res
+    try {
+      const res = await request.post('/question/bat/intoRoom', this._createParamsWithSign(player))
+      console.log('[intoRoom]', res.data)
+      this._roomId = res.data.data.roomId
+    } catch (e) {
+      console.error(e.message)
+    }
   },
   async beginFight () {
-    return await request.post('/question/bat/beginFight', this._createParamsWithSign(this._players[0]))
+    try {
+      const res = await request.post('/question/bat/beginFight', this._createParamsWithSign(this._players[0]))
+      console.log('[beginFight]', res.data)
+    } catch (e) {
+      console.error(e.message)
+    }
   },
   _players: [
     {uid: '', token: ''},
