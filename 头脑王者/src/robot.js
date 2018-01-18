@@ -5,42 +5,37 @@ const QuizModel = require('./database/quiz-model')
 // AngProxy 只支持 yield 语法，暂不支持 await
 module.exports = {
   * beforeSendRequest (requestDetail) {
-    if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
-      // 提交答案时，从题库中匹配答案，重新计算签名后发送
-      const data = QueryString.parse(requestDetail.requestData)
-      const one = yield QuizModel.findOne({quiz: this._findQuiz.quiz})
-      if (one) {
-        console.log('[匹配到题库]', one)
-        this._quiz = one
-        data.options = Tnwz.transformAnswer(one, this._findQuiz)
-        data.sign = Tnwz.sign(data, this._login.token)
-        console.log('[改数据发送]', data)
-        return {
-          requestData: QueryString.stringify(data)
-        }
-      } else {
-        this._quiz = null
-      }
-    }
+    // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
   },
   * beforeSendResponse (requestDetail, responseDetail) {
-    let response
+    let data
+    let body
     try {
-      response = JSON.parse(responseDetail.response.body.toString()).data
+      body = JSON.parse(responseDetail.response.body.toString())
+      data = body.data
       // console.log('[response]', response)
     } catch (e) {}
-    if (requestDetail.url.indexOf('/question/player/login') !== -1) {
-      this._login = response
-      console.log('[登录信息]', response)
-    } else if (requestDetail.url.indexOf('/question/bat/findQuiz') !== -1) {
-      this._findQuiz = response
-      console.log('[题目信息]', response)
+    if (requestDetail.url.indexOf('/question/bat/findQuiz') !== -1) {
+      this._findQuiz = data
+      console.log('[题目信息]', JSON.stringify(data))
+      // 从题库里找答案
+      this._quiz = yield QuizModel.findOne({quiz: this._findQuiz.quiz})
+      if (this._quiz) {
+        const answer = Tnwz.transformAnswer(this._quiz, this._findQuiz)
+        this._quiz.options[answer] = '√ ' + this._quiz.options[answer]
+        body.data = this._quiz
+        const response = Object.assign({}, responseDetail.response)
+        response.body = JSON.stringify(body)
+        console.log('[题库有答案]', answer)
+        // 还有点问题
+        // return {response}
+      }
     } else if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
       // 提交完答案，会返回正确答案，如果题库没有，就存起来
       if (!this._quiz) {
-        console.log('[保存到题库]', this._findQuiz, response.answer)
-        const quizModel = new QuizModel(Object.assign(this._findQuiz, {answer: response.answer}))
+        const quizModel = new QuizModel(Object.assign(this._findQuiz, {answer: data.answer}))
         yield quizModel.save()
+        console.log('[保存到题库]', JSON.stringify(this._findQuiz), data.answer)
       }
     }
   }

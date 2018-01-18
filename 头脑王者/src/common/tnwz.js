@@ -90,7 +90,7 @@ module.exports = {
       console.error(e.message)
     }
   },
-  // 由于选项的顺序每一次可能不一样，所以从这次选项中，找题库里正确的那个文字
+  // 由于选项的顺序每一次可能不一样，所以从这次选项中找题库里正确的那个文字
   transformAnswer(db, cur) {
     return cur.options.findIndex(option => option === db.options[db.answer - 1]) + 1
   },
