@@ -93,6 +93,7 @@ module.exports = {
       data.sign = this.sign(data, player.token)
       const res = await request.post('/question/bat/choose', data)
       console.log('[chooseAnswer]', res.data)
+      return res
     } catch (e) {
       console.error(e.message)
     }
@@ -105,6 +106,7 @@ module.exports = {
       data.sign = this.sign(data, player.token)
       const res = await request.post('/question/bat/findQuiz', data)
       console.log('[findQuiz]', res.data)
+      return res
     } catch (e) {
       console.error(e.message)
     }
