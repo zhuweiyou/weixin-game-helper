@@ -46,7 +46,7 @@ module.exports = {
   async leaveRoom (player) {
     try {
       const res = await request.post('/question/bat/leaveRoom', this._createParamsWithSign(player))
-      console.log('[leaveRoom]', res.data)
+      console.log('[leaveRoom]', JSON.stringify(res.data))
     } catch (e) {
       console.error(e.message)
     }
@@ -54,7 +54,7 @@ module.exports = {
   async fightResult (player) {
     try {
       const res = await request.post('/question/bat/fightResult', this._createParamsWithSign(player))
-      console.log('[fightResult]', res.data)
+      console.log('[fightResult]', JSON.stringify(res.data))
     } catch (e) {
       console.error(e.message)
     }
@@ -64,11 +64,15 @@ module.exports = {
       for (let i = 1; i <= 5; i++) {
         // 获取题目
         const findQuizRes = await this.findQuiz(i)
+        const quiz = findQuizRes.data.quiz
+        if (!quiz) {
+          throw new Error('没有获取到题目')
+        }
         let answer = 0
         // 查找题库是否有该题
-        const one = await QuizModel.findOne({quiz: findQuizRes.data.quiz})
+        const one = await QuizModel.findOne({quiz})
         if (one) {
-          answer = one.answer
+          answer = this.transformAnswer(one, findQuizRes.data)
         }
         // 选择答案
         const chooseAnswerRes = await this.chooseAnswer(this._players[0], i, answer)
@@ -77,6 +81,7 @@ module.exports = {
         if (!one) {
           const quizModel = new QuizModel(Object.assign(findQuizRes.data, {answer: chooseAnswerRes.data.answer}))
           await quizModel.save()
+          console.log('[保存到题库]', JSON.stringify(quizModel))
         }
         // 延迟，下一题
         await sleep(200)
@@ -85,6 +90,10 @@ module.exports = {
       console.error(e.message)
     }
   },
+  // 由于选项的顺序每一次可能不一样，所以从这次选项中，找题库里正确的那个文字
+  transformAnswer(db, cur) {
+    return cur.options.findIndex(option => option === db.options[db.answer - 1]) + 1
+  },
   async chooseAnswer (player, index = 1, answer = 1) {
     try {
       const data = this._createParams(player)
@@ -92,8 +101,8 @@ module.exports = {
       data.options = answer
       data.sign = this.sign(data, player.token)
       const res = await request.post('/question/bat/choose', data)
-      console.log('[chooseAnswer]', res.data)
-      return res
+      console.log('[chooseAnswer]', JSON.stringify(res.data))
+      return res.data
     } catch (e) {
       console.error(e.message)
     }
@@ -105,8 +114,8 @@ module.exports = {
       data.quizNum = index
       data.sign = this.sign(data, player.token)
       const res = await request.post('/question/bat/findQuiz', data)
-      console.log('[findQuiz]', res.data)
-      return res
+      console.log('[findQuiz]', JSON.stringify(res.data))
+      return res.data
     } catch (e) {
       console.error(e.message)
     }
@@ -114,7 +123,7 @@ module.exports = {
   async intoRoom (player) {
     try {
       const res = await request.post('/question/bat/intoRoom', this._createParamsWithSign(player))
-      console.log('[intoRoom]', res.data)
+      console.log('[intoRoom]', JSON.stringify(res.data))
       this._roomId = res.data.data.roomId
     } catch (e) {
       console.error(e.message)
@@ -123,7 +132,7 @@ module.exports = {
   async beginFight () {
     try {
       const res = await request.post('/question/bat/beginFight', this._createParamsWithSign(this._players[0]))
-      console.log('[beginFight]', res.data)
+      console.log('[beginFight]', JSON.stringify(res.data))
     } catch (e) {
       console.error(e.message)
     }

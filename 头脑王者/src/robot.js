@@ -12,8 +12,7 @@ module.exports = {
       if (one) {
         console.log('[匹配到题库]', one)
         this._quiz = one
-        // 由于选项的顺序每一次可能不一样，所以从这次选项中，找题库里正确的那个文字
-        data.options = this._findQuiz.options.findIndex(option => option === one.options[one.answer - 1]) + 1
+        data.options = Tnwz.transformAnswer(one, this._findQuiz)
         data.sign = Tnwz.sign(data, this._login.token)
         console.log('[改数据发送]', data)
         return {
