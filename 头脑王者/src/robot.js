@@ -22,7 +22,7 @@ module.exports = {
       this._quiz = yield QuizModel.findOne({quiz: this._findQuiz.quiz})
       if (this._quiz) {
         const answer = Tnwz.transformAnswer(this._quiz, this._findQuiz) - 1
-        this._findQuiz.options[answer] = '√ ' + this._quiz.options[answer]
+        this._findQuiz.options[answer] = '√ ' + this._findQuiz.options[answer]
         body.data = this._findQuiz
         const newResponse = Object.assign({}, responseDetail.response)
         newResponse.body = JSON.stringify(body)
