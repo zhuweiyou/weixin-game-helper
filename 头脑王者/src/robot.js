@@ -22,14 +22,13 @@ module.exports = {
       this._quiz = yield QuizModel.findOne({quiz: this._findQuiz.quiz})
       if (this._quiz) {
         const answer = Tnwz.transformAnswer(this._quiz, this._findQuiz) - 1
-        this._findQuiz.options[answer] = '√ ' + this._findQuiz.options[answer]
+        const option = this._findQuiz.options[answer]
+        this._findQuiz.options[answer] = '√ ' + option
         body.data = this._findQuiz
-        const newResponse = Object.assign({}, responseDetail.response)
-        newResponse.body = JSON.stringify(body)
-        console.log('[题库有答案]', this._quiz.options[answer])
-        return {
-          response: newResponse
-        }
+        const response = Object.assign({}, responseDetail.response)
+        response.body = JSON.stringify(body)
+        console.log('[题库有答案]', option)
+        return {response}
       }
     } else if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
       // 提交完答案，会返回正确答案，如果题库没有，就存起来
