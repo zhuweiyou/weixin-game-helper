@@ -10,7 +10,7 @@
 - 抓小游戏的 https 登录请求，获取 `session_id`，填入 [src/index.js](src/index.js) 中
 - 刷分 `npm start`
 
-## 效果
+## 截图
 <img width="320" src="https://user-images.githubusercontent.com/8413791/34549243-4401b754-f142-11e7-80dd-bae7bdba3765.png" alt="截图">
 
 ## 其它
