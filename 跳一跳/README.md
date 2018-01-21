@@ -1,11 +1,13 @@
 # 跳一跳
 
-跳一跳会更新，不保证一直有效
+一键刷分脚本
+
+> 游戏会更新，不保证一直有效
 
 ## 运行
 - 安装 Node.js 8.x 以上
 - 安装依赖 `npm i`
-- 抓小游戏的 https 请求，获取 `session_id`，填入 [src/index.js](src/index.js) 中
+- 抓小游戏的 https 登录请求，获取 `session_id`，填入 [src/index.js](src/index.js) 中
 - 刷分 `npm start`
 
 ## 效果

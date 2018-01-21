@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.17.1"
+  }
+}
