@@ -1,10 +1,6 @@
 # weixin-game-helper
 微信小游戏辅助合集
 
+不定时增加新的辅助，也欢迎共同开发
+
 > 本项目仅供学习交流之用
-
-## License
-
-[GPL-3.0](LICENSE)
-
-Copyright &copy; 2018 zhuweiyou
