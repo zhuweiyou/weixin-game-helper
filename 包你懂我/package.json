@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "ca": "anyproxy-ca",
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js"
+  },
+  "dependencies": {
+    "anyproxy": "^4.0.4"
+  }
+}
