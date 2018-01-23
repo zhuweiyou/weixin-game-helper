@@ -53,4 +53,11 @@
 暂时没有 win 的图，有的欢迎截图补充，大概的操作方式都一样
 
 有问题可以提 issue
-</<details>
+
+</details>
+
+<details>
+<summary>如何安装 AnyProxy 证书？</summary>
+
+[AnyProxy 文档](http://anyproxy.io/cn/#%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE)
+</details>
