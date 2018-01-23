@@ -53,11 +53,14 @@
 暂时没有 win 的图，有的欢迎截图补充，大概的操作方式都一样
 
 有问题可以提 issue
-
 </details>
 
 <details>
 <summary>如何安装 AnyProxy 证书？</summary>
 
-[AnyProxy 文档](http://anyproxy.io/cn/#%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE)
+先根据具体某个辅助的文档说明，执行相关的命令生成 RootCA
+
+将生成的证书安装到手机上，有困难参考[AnyProxy 文档](http://anyproxy.io/cn/#%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE)
+
+最后在手机上设置代理 IP（电脑的局域网 IP） 和 端口（默认 8001）
 </details>
