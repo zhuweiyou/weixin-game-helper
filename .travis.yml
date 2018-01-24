@@ -1,3 +1,12 @@
+language: node_js
+
+node_js:
+  - '8'
+
+cache:
+  directories:
+    - node_modules
+
 script:
   - if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then
     git config user.name 'Travis CI';

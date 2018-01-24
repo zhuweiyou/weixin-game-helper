@@ -15,7 +15,7 @@
 
 > 本项目仅供学习交流之用，不定时增加新的游戏辅助
 
-## 帮助
+## 教程
 
 - [如何抓取微信小程序 HTTPS 请求](https://github.com/zhuweiyou/weixin-game-helper/issues/6)
 - [如何安装 AnyProxy 证书](https://github.com/zhuweiyou/weixin-game-helper/issues/7)
