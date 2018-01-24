@@ -2,7 +2,7 @@ script:
   - if [[ $TRAVIS_BRANCH == 'readme' && $TRAVIS_PULL_REQUEST == 'false' ]]; then
     git config user.name 'Travis CI';
     git config user.email 'i@zhuweiyou.com';
-    git push https://${GITEE_TOKEN}@gitee.com/npm/weixin-game-helper.git master -f;
+    git push https://${GITEE_TOKEN}@gitee.com/npm/weixin-game-helper.git readme:master -f;
     fi
 
 branches:
