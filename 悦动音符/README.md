@@ -10,6 +10,8 @@
 
 ## 截图
 
+随便刷了第一篇的三首歌曲：
+
 <table>
   <tr>
     <th>新年好</th>
@@ -18,13 +20,14 @@
   </tr>
   <tr>
     <td>
-      <img src="https://user-images.githubusercontent.com/8413791/35319659-caa60b64-011b-11e8-9051-29e31365164b.png" alert="新年好">
+      <img width="320" src="https://user-images.githubusercontent.com/8413791/35319659-caa60b64-011b-11e8-9051-29e31365164b.png" alt="新年好">
     </td>
     <td>
-      <img src="https://user-images.githubusercontent.com/8413791/35319663-d07374be-011b-11e8-98ac-d22a1df66391.png" alert="生日快乐">
+      <img width="320" src="https://user-images.githubusercontent.com/8413791/35319663-d07374be-011b-11e8-98ac-d22a1df66391.png" alt="生日快乐">
     </td>
     <td>
-      <img src="https://user-images.githubusercontent.com/8413791/35319663-d07374be-011b-11e8-98ac-d22a1df66391.png" alert="铃儿响叮当">
+      <img width="320" src="https://user-images.githubusercontent.com/8413791/35319779-51f28598-011c-11e8-9eaf-260ad2244986.png" alt="铃儿响叮当">
     </td>
   </tr>
 </table>
+
