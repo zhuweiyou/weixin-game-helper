@@ -24,7 +24,9 @@
 
 导入命令,注意你的文件路径
 
-`mongoimport -d tnwz -c quizzes --file ~/Downloads/quizzes.json --jsonArray --drop`
+```bash
+mongoimport -d tnwz -c quizzes --file ~/Downloads/quizzes.json --jsonArray --drop
+```
 
 ### 答题辅助 
 
