@@ -3,7 +3,7 @@
 一键刷分脚本
 
 ## 运行
-- 安装 Node.js 8.x 以上
+- 安装 Node.js 9.x 以上
 - 安装依赖 `npm i`
 - 抓小游戏的 https 登录请求，获取 `session_id` 和 `openid`，填入 [src/index.js](src/index.js) 中
 - 刷分 `npm start`
