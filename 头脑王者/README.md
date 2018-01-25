@@ -22,6 +22,10 @@
 
 爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](quizzes.json)（近 1.7w 题）数据库名为 `tnwz`
 
+导入命令,注意你的文件路径
+
+`mongoimport -d tnwz -c quizzes --file ~/Downloads/quizzes.json --jsonArray --drop`
+
 ### 答题辅助 
 
 暂时只支持 Android 设备，详情 [#10](https://github.com/zhuweiyou/weixin-game-helper/issues/10)
