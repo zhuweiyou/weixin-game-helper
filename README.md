@@ -19,3 +19,4 @@
 
 - [如何抓取微信小程序 HTTPS 请求](https://github.com/zhuweiyou/weixin-game-helper/issues/6)
 - [如何安装 AnyProxy 证书](https://github.com/zhuweiyou/weixin-game-helper/issues/7)
+- [如何抓取登录请求拿到 session_id、openid](https://github.com/zhuweiyou/weixin-game-helper/issues/13)
