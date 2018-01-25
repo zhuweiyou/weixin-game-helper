@@ -1,4 +1,4 @@
-const QueryString = require('query-string')
+const exec = require('child_process').exec
 const Tnwz = require('./common/tnwz')
 const QuizModel = require('./database/quiz-model')
 
@@ -30,6 +30,9 @@ module.exports = {
         console.log('[题库有答案]', option)
         return {response}
       }
+      const search = `https://www.baidu.com/s?wd=${encodeURIComponent(this._findQuiz.quiz)}`
+      console.log('[百度搜答案]', search)
+      exec(`open ${search}`)
     } else if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
       // 提交完答案，会返回正确答案，如果题库没有，就存起来
       if (!this._quiz) {
