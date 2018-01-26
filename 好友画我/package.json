@@ -4,6 +4,8 @@
     "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js"
   },
   "dependencies": {
-    "anyproxy": "^4.0.4"
+    "anyproxy": "^4.0.4",
+    "axios": "*",
+    "query-string": "^5.0.1"
   }
 }

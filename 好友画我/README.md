@@ -15,6 +15,8 @@
 
 一切都配置好之后，**完全退出小程序进程**，执行 `npm start`，再重新进入小程序
 
+脚本会直接调用Api修改数据,`修改过的数据永久显示`
+
 ## 截图
 
 <img width="480" src="https://user-images.githubusercontent.com/8413791/35426591-1d26928a-029f-11e8-883e-a0c1e62a9cb6.png" alt="截图">
