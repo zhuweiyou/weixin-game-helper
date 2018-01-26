@@ -2,9 +2,8 @@ const axios = require('axios')
 const queryString = require('querystring')
 
 module.exports = async (userid, objectid) => {
-  const url = 'https://code.motisky.com/api/authorizeShowAuthor'
   const {data} = await axios({
-    url,
+    url: 'https://code.motisky.com/api/authorizeShowAuthor',
     data: queryString.stringify({
       userid,
       objectid

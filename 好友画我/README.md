@@ -19,9 +19,7 @@
 
 ## 想帮好友改数据？
 
-先抓包看好友数据 `api/getDrawByTarget` 注意这个接口
-
-将 userid 填入`local.js` 第四行，响应结果填入 `local.json`
+先抓包看好友数据 `api/getDrawByTarget` 看这个接口，将 userid 和响应内容填入 [src/local.js](src/local.js)
 
 运行`npm run local`
 
