@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "ca": "anyproxy-ca",
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/index.js"
+  },
+  "dependencies": {
+    "anyproxy": "^4.0.4",
+    "axios": "^0.17.1",
+    "canvas-prebuilt": "^1.6.5-prerelease.1"
+  }
+}
