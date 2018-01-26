@@ -8,7 +8,6 @@
 - 抓小游戏的 https 登录请求，获取 `session_id` 和 `openid`，填入 [src/config.js](src/config.js) 中
 - 下载音乐列表 `npm run download`
 - 刷分 `npm start`
-- 刷分后需要删除小程序,重新添加(清除缓存)
 
 ## 截图
 

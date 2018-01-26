@@ -22,7 +22,7 @@
 
 爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](quizzes.json)（近 1.7w 题）数据库名为 `tnwz`
 
-导入命令,注意你的文件路径
+导入命令，注意你的文件路径
 
 ```bash
 mongoimport -d tnwz -c quizzes --file ~/Downloads/quizzes.json --jsonArray --drop
