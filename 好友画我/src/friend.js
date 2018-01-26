@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const request = require('./request')
 
-// 填入你的 userid
+// 填入 userid
 const userid = ''
 
 // 填入响应内容
