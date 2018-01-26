@@ -1,4 +1,3 @@
-const fs = require('fs-extra')
 const request = require('./request')
 
 // 填入 userid
