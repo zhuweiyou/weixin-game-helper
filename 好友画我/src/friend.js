@@ -6,5 +6,5 @@ const userid = ''
 // 填入响应内容
 const response = []
 
-response.forEach(item => request(userid, item._id))
+response.forEach(({_id}) => request(userid, _id))
 
