@@ -15,14 +15,13 @@
 
 一切都配置好之后，**完全退出小程序进程**，执行 `npm start`，再重新进入小程序
 
-脚本会直接调用Api修改数据,`修改过的数据永久显示`
+脚本会直接调用 API 修改数据，**修改过的数据永久显示**
 
+## 想帮好友改数据？
 
-## 想帮好友改数据???
+先抓包看好友数据 `api/getDrawByTarget` 注意这个接口
 
-先抓包看好友数据`api/getDrawByTarget`注意这个接口
-
-将userid填入`local.js`第四行,响应结果填入`local.json`
+将 userid 填入`local.js` 第四行，响应结果填入 `local.json`
 
 运行`npm run local`
 

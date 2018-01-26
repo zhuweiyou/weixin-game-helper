@@ -8,9 +8,9 @@ const userid = ''//填入你的userid
   try {
     data = await fs.readFile('local.json')
   } catch (e) {
-    console.log('请先运行填入本地数据到`local.json`文件中')
+    console.log('请先填入数据到 local.json 文件中')
     return
   }
   JSON.parse(data.toString())
-    .forEach((item) => request(userid,item._id))
+    .forEach(item => request(userid, item._id))
 })()

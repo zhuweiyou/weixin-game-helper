@@ -2,12 +2,11 @@
   "scripts": {
     "ca": "anyproxy-ca",
     "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js",
-    "local":"node local.js"
+    "local": "node local.js"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
-    "axios": "*",
-    "fs-extra": "^5.0.0",
-    "query-string": "^5.0.1"
+    "axios": "^0.17.1",
+    "fs-extra": "^5.0.0"
   }
 }
