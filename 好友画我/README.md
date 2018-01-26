@@ -24,7 +24,7 @@
 
 将userid填入`local.js`第四行,响应结果填入`local.json`
 
-运行`node local`
+运行`npm run local`
 
 ## 截图
 

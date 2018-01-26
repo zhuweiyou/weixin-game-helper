@@ -1,7 +1,8 @@
 {
   "scripts": {
     "ca": "anyproxy-ca",
-    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js"
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js",
+    "local":"node local.js"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
