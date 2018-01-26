@@ -1,7 +1,7 @@
 {
   "scripts": {
     "ca": "anyproxy-ca",
-    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=index.js",
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/index.js",
     "friend": "node src/friend.js"
   },
   "dependencies": {
