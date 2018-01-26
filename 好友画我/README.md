@@ -17,6 +17,15 @@
 
 脚本会直接调用Api修改数据,`修改过的数据永久显示`
 
+
+## 相帮好友改数据???
+
+先抓包看好友数据`api/getDrawByTarget`注意这个接口
+
+将userid填入`local.js`第四行,响应结果填入`local.json`
+
+运行`node local`
+
 ## 截图
 
 <img width="480" src="https://user-images.githubusercontent.com/8413791/35426591-1d26928a-029f-11e8-883e-a0c1e62a9cb6.png" alt="截图">

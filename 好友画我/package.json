@@ -6,6 +6,7 @@
   "dependencies": {
     "anyproxy": "^4.0.4",
     "axios": "*",
+    "fs-extra": "^5.0.0",
     "query-string": "^5.0.1"
   }
 }
