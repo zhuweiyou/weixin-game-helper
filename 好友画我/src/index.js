@@ -6,7 +6,7 @@ module.exports = {
   * beforeSendResponse (requestDetail, responseDetail) {
     if (requestDetail.url.indexOf('/api/getDrawByTarget') !== -1) {
       const body = JSON.parse(responseDetail.response.body.toString())
-      const userid = qs.parse(requestDetail.url).userid
+      const {userid} = qs.parse(requestDetail.url)
       body.forEach(({_id}) => request(userid, _id))
     }
   }

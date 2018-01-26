@@ -10,5 +10,5 @@ module.exports = async (userid, objectid) => {
       'Content-Type': 'application/x-www-form-urlencoded',
     }
   })
-  console.log(data)
+  console.log('[Response]', data)
 }
