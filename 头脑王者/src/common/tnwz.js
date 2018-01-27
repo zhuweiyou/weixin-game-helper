@@ -1,6 +1,6 @@
 const crypto = require('crypto')
 const axios = require('axios')
-const QueryString = require('query-string')
+const querystring = require('querystring')
 const sleep = require('./sleep')
 require('../database/mongo')
 const QuizModel = require('../database/quiz-model')
@@ -11,7 +11,7 @@ const request = axios.create({
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_1 like Mac OS X) AppleWebKit/604.4.7 (KHTML, like Gecko) Mobile/15C153 MicroMessenger/6.6.1 NetType/WIFI Language/zh_CN',
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  transformRequest: [data => QueryString.stringify(data)]
+  transformRequest: [data => querystring.stringify(data)]
 })
 
 module.exports = {

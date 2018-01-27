@@ -7,7 +7,6 @@
   "dependencies": {
     "anyproxy": "^4.0.4",
     "axios": "^0.17.1",
-    "mongoose": "^4.13.9",
-    "query-string": "^5.0.1"
+    "mongoose": "^4.13.9"
   }
 }

@@ -1,10 +1,10 @@
 const axios = require('axios')
-const qs = require('querystring')
+const querystring = require('querystring')
 
 module.exports = async (userid, objectid) => {
   const {data} = await axios({
     url: 'https://code.motisky.com/api/authorizeShowAuthor',
-    data: qs.stringify({userid, objectid}),
+    data: querystring.stringify({userid, objectid}),
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
