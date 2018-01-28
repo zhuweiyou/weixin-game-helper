@@ -10,7 +10,5 @@ module.exports = async url => {
     responseType: 'arraybuffer'
   })
   const id = url.match(/\/([^/]*?)\/mixed_image/).pop()
-  const file = `/${id}.png`
-  await decrypt(id, data, `./server${file}`)
-  return file
+  return decrypt(id, data)
 }

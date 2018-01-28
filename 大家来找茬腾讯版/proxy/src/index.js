@@ -1,20 +1,13 @@
-const download = require('./download')
-
-// 运行 npm run server 后，复制终端打印的局域网地址到这里
-const hostname = '192.168.0.101'
-const port = 3344
+const decrypt = require('./decrypt')
 
 module.exports = {
-  * beforeSendRequest (requestDetail) {
+  * beforeSendRequest (requestDetail) {},
+  * beforeSendResponse (requestDetail, responseDetail) {
     if (requestDetail.url.indexOf('/mixed_image.dat') !== -1) {
-      const path = yield download(responseDetail.url)
-      const newRequestOptions = requestDetail.requestOptions
-      requestDetail.protocol = 'http'
-      newRequestOptions.hostname = hostname
-      newRequestOptions.port = port
-      newRequestOptions.path = path
-      return requestDetail
+      const id = url.match(/\/([^/]*?)\/mixed_image/).pop()
+      const response = responseDetail.response
+      response.body = decrypt(id, response.body)
+      return {response}
     }
-  },
-  * beforeSendResponse (requestDetail, responseDetail) {}
+  }
 }

@@ -27,8 +27,8 @@ function arrayBufferToBase64 (e) {
   return `data:image/png;base64,${r.fromByteArray(t)}`
 }
 
-async function decrypt (id, data, dist) {
-  data = await decryptFromBuffer(id, data)
+function decrypt (id, data) {
+  data = decryptFromBuffer(id, data)
 
   const image = new Canvas.Image()
   image.src = arrayBufferToBase64(data)
@@ -37,21 +37,11 @@ async function decrypt (id, data, dist) {
   const context = canvas.getContext('2d')
   context.drawImage(image, 0, 0, image.width, image.height, 0, 0, image.height, image.height)
 
-  await fs.writeFile(dist, canvas.toBuffer())
+  // debug
+  fs.writeFile(`./data/${id}.png`, canvas.toBuffer())
+
+  return canvas.toBuffer()
 }
 
 module.exports = decrypt
 
-//
-// canvas = new Canvas(screen.width, screen.height)
-// context = canvas.getContext('2d')
-// context.drawImage(screen, 0, 0, screen.width, screen.height)
-// for (let y = 0; y < r1.h; y++) {
-//   for (let x = 0; x < r1.w; x++) {
-//     const {data: c1} = context.getImageData(x + r1.x, y + r1.y, 1, 1)
-//     const {data: c2} = context.getImageData(x + r2.x, y + r2.y, 1, 1)
-//     if ((255 - Math.abs(c1[0] - c2[0]) * 0.297 - Math.abs(c1[1] - c2[1]) * 0.593 - Math.abs(c1[2] - c2[2]) * 0.11) / 255 < similarity) {
-//       context.putImageData(new ImageData(new Uint8ClampedArray([255, 0, 0, 225]), 1, 1), x + r1.x, y + r1.y)
-//     }
-//   }
-// }
