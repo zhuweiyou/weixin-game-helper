@@ -7,6 +7,11 @@
 - Node.js 9.x 以上
 - 安装依赖 `npm i`
 
+由于依赖了本地库，如果安装一直卡在 `node-pre-gyp install` 这个提示，很长时间不动的话
+
+可以从 [node-gfx/node-canvas-prebuilt](https://github.com/node-gfx/node-canvas-prebuilt/releases/tag/v1.6.5-prerelease.1) 
+下载 v59 对应你操作系统的包，把所有文件拷贝到 `大家来找茬腾讯版/node_modules/canvas-prebuilt/canvas/build/Release` 中即可
+
 ## 使用
 
 执行 `npm run ca` 生成 RootCA，将生成的证书安装到手机上，并在手机上设置代理 IP（电脑的局域网 IP） 和 端口（8001）
