@@ -7,12 +7,12 @@
 - Node.js 9.x 以上
 - 安装依赖 `npm i`
 
-由于依赖了本地库，如果安装一直卡在 `node-pre-gyp install` 这个提示，很长时间不动的话
+由于依赖了本地库，如果安装一直卡在 `node-pre-gyp install` 的提示很长时间不动的话
 
 可以从 [node-gfx/node-canvas-prebuilt](https://github.com/node-gfx/node-canvas-prebuilt/releases/tag/v1.6.5-prerelease.1) 
 下载 v59 对应你操作系统的包
 
-把所有文件拷贝到 `大家来找茬腾讯版/node_modules/canvas-prebuilt/canvas/build/Release`，此时重新 `npm i` 一会就安装成功了
+把所有文件拷贝到 `大家来找茬腾讯版/node_modules/canvas-prebuilt/canvas/build/Release`，再次 `npm i` 很快就安装成功了
 
 ## 使用
 
