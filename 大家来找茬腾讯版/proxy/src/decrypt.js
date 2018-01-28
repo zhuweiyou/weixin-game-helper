@@ -4,14 +4,10 @@ const e = require('./e')
 const r = require('./r')
 
 function decryptFile (id, data) {
-  for (var key = getKey(id), i = 0; i < data.length; i += key.length)
-    for (var j = 0; i + j < data.length && j < key.length; ++j)
+  for (let key = getKey(id), i = 0; i < data.length; i += key.length)
+    for (let j = 0; i + j < data.length && j < key.length; ++j)
       data[i + j] ^= key[j]
   return data
-}
-
-function encryptFile (id, data) {
-
 }
 
 function getKey (r) {
@@ -37,12 +33,14 @@ function decrypt (id, data) {
   image.src = data
   const canvas = new Canvas(image.width, image.height)
   const context = canvas.getContext('2d')
+  // 只画左边的正方形大图，右边的碎片直接填红，这样游戏时就可以看到标记了，达到辅助的效果
   context.fillStyle = 'red'
   context.fillRect(0, 0, image.width, image.height)
   context.drawImage(image, 0, 0, image.height, image.height, 0, 0, image.height, image.height)
-  // debug
+  // 调试用的
   fs.writeFile(`./data/${id}.png`, canvas.toBuffer())
-  return encryptFile(canvas.toBuffer())
+  // 加密回去返回给客户端（解密用的是异或，所以再加密一次就相当于解密了）
+  return Buffer.from(decryptFromBuffer(id, canvas.toBuffer()))
 }
 
 module.exports = decrypt
