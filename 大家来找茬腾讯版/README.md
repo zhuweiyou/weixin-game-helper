@@ -18,3 +18,7 @@
 ## 截图
 
 <img width="480" src="https://user-images.githubusercontent.com/8413791/35481371-571a8a86-045d-11e8-8130-f235049dfcb1.png" alt="截图">
+
+## 原理
+
+通过代理方式，拦截游戏 .dat 请求的加密图片，通过辅助解密之后标记红色，再重新加密返回给游戏客户端。
