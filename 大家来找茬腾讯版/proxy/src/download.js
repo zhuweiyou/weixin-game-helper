@@ -1,5 +1,5 @@
 const axios = require('axios')
-const {decryptFromFile} = require('./game')
+const decrypt = require('./decrypt')
 
 // "https://zhaocha.qq.com/resource/zhaocha/" + Math.floor(e / 1e4) + "/" + e + "/mixed_image.dat"
 
@@ -10,7 +10,7 @@ module.exports = async url => {
     responseType: 'arraybuffer'
   })
   const id = url.match(/\/([^/]*?)\/mixed_image/).pop()
-  const file = `${id}.png`
-  await decryptFromFile(id, data, `./server/${file}`)
+  const file = `/${id}.png`
+  await decrypt(id, data, `./server${file}`)
   return file
 }

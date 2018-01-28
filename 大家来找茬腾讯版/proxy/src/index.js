@@ -7,12 +7,12 @@ const port = 3344
 module.exports = {
   * beforeSendRequest (requestDetail) {
     if (requestDetail.url.indexOf('/mixed_image.dat') !== -1) {
-      const file = yield download(responseDetail.url)
+      const path = yield download(responseDetail.url)
       const newRequestOptions = requestDetail.requestOptions
       requestDetail.protocol = 'http'
       newRequestOptions.hostname = hostname
       newRequestOptions.port = port
-      newRequestOptions.path = `/${file}`
+      newRequestOptions.path = path
       return requestDetail
     }
   },
