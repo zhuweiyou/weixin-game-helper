@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "node ./src/server/bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "express-session": "^1.15.6",
+    "fs-extra": "^5.0.0",
+    "less-middleware": "~2.2.1",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  }
+}
