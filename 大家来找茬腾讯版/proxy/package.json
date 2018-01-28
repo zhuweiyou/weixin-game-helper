@@ -1,6 +1,11 @@
 {
   "scripts": {
-    "start": ""
+    "ca": "anyproxy-ca",
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/index.js",
+    "test": "node test/index.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "anyproxy": "^4.0.4",
+    "fs-extra": "^5.0.0"
+  }
 }
