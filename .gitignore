@@ -2,4 +2,4 @@
 node_modules
 .DS_Store
 悦动音符/data/songs.json
-大家来找茬腾讯版/proxy/data/*.png
+大家来找茬腾讯版/data/*.png
