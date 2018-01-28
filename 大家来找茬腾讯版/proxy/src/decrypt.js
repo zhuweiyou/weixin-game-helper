@@ -3,11 +3,15 @@ const Canvas = require('canvas-prebuilt')
 const e = require('./e')
 const r = require('./r')
 
-function decryptFile (e, r) {
-  for (var t = getKey(e), a = 0; a < r.length; a += t.length)
-    for (var o = 0; a + o < r.length && o < t.length; ++o)
-      r[a + o] ^= t[o]
-  return r
+function decryptFile (id, data) {
+  for (var key = getKey(id), i = 0; i < data.length; i += key.length)
+    for (var j = 0; i + j < data.length && j < key.length; ++j)
+      data[i + j] ^= key[j]
+  return data
+}
+
+function encryptFile (id, data) {
+
 }
 
 function getKey (r) {
@@ -22,25 +26,23 @@ function decryptFromBuffer (id, data) {
   return decryptFile(id, data)
 }
 
-function arrayBufferToBase64 (e) {
-  var t = new Uint8Array(e)
-  return `data:image/png;base64,${r.fromByteArray(t)}`
-}
+// function arrayBufferToBase64 (e) {
+//   var t = new Uint8Array(e)
+//   return `data:image/png;base64,${r.fromByteArray(t)}`
+// }
 
 function decrypt (id, data) {
   data = decryptFromBuffer(id, data)
-
   const image = new Canvas.Image()
-  image.src = arrayBufferToBase64(data)
-
+  image.src = data
   const canvas = new Canvas(image.width, image.height)
   const context = canvas.getContext('2d')
-  context.drawImage(image, 0, 0, image.width, image.height, 0, 0, image.height, image.height)
-
+  context.fillStyle = 'red'
+  context.fillRect(0, 0, image.width, image.height)
+  context.drawImage(image, 0, 0, image.height, image.height, 0, 0, image.height, image.height)
   // debug
   fs.writeFile(`./data/${id}.png`, canvas.toBuffer())
-
-  return canvas.toBuffer()
+  return encryptFile(canvas.toBuffer())
 }
 
 module.exports = decrypt
