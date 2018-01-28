@@ -17,7 +17,16 @@
 
 ## 截图
 
-<img width="480" src="https://user-images.githubusercontent.com/8413791/35481371-571a8a86-045d-11e8-8130-f235049dfcb1.png" alt="截图">
+<table>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/8413791/35481371-571a8a86-045d-11e8-8130-f235049dfcb1.png" alt="截图1">
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/8413791/35481552-db9222d0-0460-11e8-8ef4-70e270d2fafd.png" alt="截图2">
+    </td>
+  </tr>
+</table>
 
 ## 原理
 
