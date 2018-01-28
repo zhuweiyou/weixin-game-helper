@@ -17,4 +17,4 @@
 
 ## 截图
 
-<img src="https://user-images.githubusercontent.com/8413791/35481371-571a8a86-045d-11e8-8130-f235049dfcb1.png" alt="截图">
+<img width="480" src="https://user-images.githubusercontent.com/8413791/35481371-571a8a86-045d-11e8-8130-f235049dfcb1.png" alt="截图">
