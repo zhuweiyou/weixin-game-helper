@@ -4,6 +4,12 @@ const QuizModel = require('./database/quiz-model')
 
 // AngProxy 只支持 yield 语法，暂不支持 await
 module.exports = {
+  * beforeDealHttpsRequest(requestDetail) {
+    if (requestDetail.host.indexOf('question.hortor.net') !== -1) {
+      return true;
+    }
+    return false;
+  },
   * beforeSendRequest (requestDetail) {
     // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
   },
