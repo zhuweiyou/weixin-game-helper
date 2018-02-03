@@ -9,7 +9,7 @@
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/npm/weixin-game-helper)
-[![Build Status](https://travis-ci.org/zhuweiyou/weixin-game-helper.svg?branch=master)](https://travis-ci.org/zhuweiyou/weixin-game-helper)
+[![Build Status](https://travis-ci.org/game-helper/weixin.svg?branch=master)](https://travis-ci.org/game-helper/weixin)
 
 微信小游戏辅助合集
 
@@ -17,7 +17,7 @@
 
 ## 教程
 
-- [如何抓取微信小程序 HTTPS 请求](https://github.com/zhuweiyou/weixin-game-helper/issues/6)
-- [如何安装 AnyProxy 证书](https://github.com/zhuweiyou/weixin-game-helper/issues/7)
-- [如何抓取登录请求拿到 session_id、openid](https://github.com/zhuweiyou/weixin-game-helper/issues/13)
-- [刷分之后手机上没有看到效果](https://github.com/zhuweiyou/weixin-game-helper/issues/17)
+- [如何抓取微信小程序 HTTPS 请求](https://github.com/game-helper/weixin/issues/6)
+- [如何安装 AnyProxy 证书](https://github.com/game-helper/weixin/issues/7)
+- [如何抓取登录请求拿到 session_id、openid](https://github.com/game-helper/weixin/issues/13)
+- [刷分之后手机上没有看到效果](https://github.com/game-helper/weixin/issues/17)
