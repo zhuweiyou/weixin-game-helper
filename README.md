@@ -8,7 +8,7 @@
 ```
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
-[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/npm/weixin-game-helper)
+[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/weixin)
 [![Build Status](https://travis-ci.org/game-helper/weixin.svg?branch=master)](https://travis-ci.org/game-helper/weixin)
 
 微信小游戏辅助合集
