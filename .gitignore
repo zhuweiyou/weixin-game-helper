@@ -1,5 +1,6 @@
 .idea
 node_modules
 .DS_Store
+package-lock.json
 悦动音符/data/songs.json
 大家来找茬腾讯版/data/*.png
