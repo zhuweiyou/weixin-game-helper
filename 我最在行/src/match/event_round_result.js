@@ -1,4 +1,4 @@
-const QuestionModel = require('../common/question-model')
+const QuestionModel = require('../common/question_model')
 const event_battle_start = require('./event_battle_start')
 
 module.exports = async (socket, data) => {

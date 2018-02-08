@@ -11,7 +11,6 @@ module.exports = class Https {
     this.request = axios.create({
       headers: {
         'user-agent': 'Mozilla/5.0 (Linux; Android 7.0; MIX Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/043906 Mobile Safari/537.36 MicroMessenger/6.6.2.1240(0x26060236) NetType/WIFI Language/zh_CN MicroMessenger/6.6.2.1240(0x26060236) NetType/WIFI Language/zh_CN',
-        host: 'puzzle-gateway.zaih.com',
         referer: `https://servicewechat.com/${APPID}/${VERSION}/page-frame.html`,
         uid: account_id,
         jwt: `Bearer ${access_token}`

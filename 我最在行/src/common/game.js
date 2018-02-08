@@ -8,16 +8,16 @@ module.exports = async (player, {master = false, match = false, theme = 0} = {})
   const challenges = await https.challenges()
   // 获取某个分类下的信息
   const {theme_id} = challenges[theme]
-  const selfDanGrades = await https.selfDanGrades({theme_id})
+  const danGrade = (await https.selfDanGrades({theme_id}))[0] || {}
   const ret = {
     theme_id,
     avatar: accountsSelf.avatar,
     level: accountsSelf.level,
     player_id: player.account_id,
     token: player.access_token,
-    dan: selfDanGrades.dan,
-    grade: selfDanGrades.grade,
-    star: selfDanGrades.star,
+    dan: danGrade.dan,
+    grade: danGrade.grade,
+    star: danGrade.star,
     master
   }
   if (master) {

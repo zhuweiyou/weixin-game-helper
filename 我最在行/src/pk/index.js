@@ -12,7 +12,7 @@ module.exports = async players => {
     game(players[0], {master: true}),
     game(players[1])
   ])
-  return rooms.map(room => new PkSocket({
+  rooms.map(room => new PkSocket({
     ...room,
     type: 'pk',
     address: rooms[0].address,
