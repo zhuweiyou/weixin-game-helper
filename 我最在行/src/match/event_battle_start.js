@@ -2,6 +2,11 @@ const QuestionModel = require('../common/question_model')
 const random = require('../common/random')
 
 module.exports = async (socket, data) => {
+  if (!data.question) {
+    // 游戏结束
+    return
+  }
+
   // 从题库找答案
   const one = await QuestionModel.findOne({question: data.question})
   let choice
