@@ -27,7 +27,7 @@ module.exports = class Socket {
   }
 
   onOpen () {
-    console.log('[onOpen]', this.master)
+    console.log('[onOpen]', `${(this.master ? '大号' : '小号')}连接成功`)
   }
 
   onClose ({reason}) {
@@ -44,5 +44,9 @@ module.exports = class Socket {
 
   onError (error) {
     console.error('[onError]', error)
+  }
+
+  send (data) {
+    this.client.send(JSON.stringify(data))
   }
 }
