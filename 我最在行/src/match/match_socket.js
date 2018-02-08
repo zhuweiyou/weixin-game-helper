@@ -9,10 +9,6 @@ module.exports = class MatchSocket extends Socket {
     this.events = events
   }
 
-  onOpen () {
-    console.log('[onOpen]', '正在匹配对手')
-  }
-
   onMessage (options) {
     const data = super.onMessage(options)
     if (data.address) {
