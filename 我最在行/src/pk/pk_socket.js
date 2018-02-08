@@ -15,7 +15,6 @@ module.exports = class PkSocket extends Socket {
       owner_id: player_id
     })}`
     super({wss, events})
-    console.log(wss)
     this.master = master
     this.player_id = player_id
   }

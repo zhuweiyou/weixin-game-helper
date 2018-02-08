@@ -13,6 +13,5 @@ module.exports = class MatchSocket extends Socket {
       star
     })}`
     super({wss, events})
-    console.log(wss)
   }
 }
