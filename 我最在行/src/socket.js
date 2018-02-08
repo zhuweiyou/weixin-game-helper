@@ -2,7 +2,7 @@ const {w3cwebsocket: WebSocket} = require('websocket')
 const querystring = require('querystring')
 
 module.exports = class Socket {
-  constructor ({address, player_id, avatar, level, type, theme_id, token, dan, grade}) {
+  constructor ({address, player_id, avatar, level, type, theme_id, token, dan, grade, master}) {
     const wss = `${address}&${querystring.stringify({
       player_id,
       avatar,
@@ -20,10 +20,11 @@ module.exports = class Socket {
     this.client.onclose = this.onClose.bind(this)
     this.client.onmessage = this.onMessage.bind(this)
     this.client.onerror = this.onError.bind(this)
+    this.master = master
   }
 
   onOpen () {
-    console.log('[onOpen]')
+    console.log('[onOpen]', this.master)
   }
 
   onClose (reasonCode, description) {
