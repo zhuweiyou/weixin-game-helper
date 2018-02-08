@@ -1,12 +1,11 @@
 const QuestionModel = require('../database/question-model')
 
-module.exports = (socket, data) => {
+module.exports = async (socket, data) => {
   // 两个人题目一样，所以只要大号记就好
   if (socket.master) {
     // 组合题目和答案，入库
     socket._question.answer = data.results.answer
-    new QuestionModel(socket._question).save()
-    console.log('保存到题库', JSON.stringify(socket._question))
+    console.log('保存到题库', JSON.stringify(await new QuestionModel(socket._question).save()))
 
     // 下一题的题目，也一块返回了。和 event_battle_start 一样，暂存内存
     socket._question = {
@@ -14,5 +13,11 @@ module.exports = (socket, data) => {
       options: data.options
     }
   }
+
+  // 两个号都随便选个答案
+  socket.send({
+    event: 'event_choice',
+    choice: 0
+  })
 }
 
