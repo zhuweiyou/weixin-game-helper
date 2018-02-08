@@ -29,7 +29,7 @@
 导入命令，注意你的文件路径
 
 ```bash
-mongoimport -d tnwz -c quizzes --file ~/Downloads/questions.json --jsonArray --drop
+mongoimport -d wzzh -c quizzes --file ~/Downloads/questions.json --jsonArray --drop
 ```
 
 ### 答题辅助 
