@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node src/index.js"
+    "crawl": "node src/crawl.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
