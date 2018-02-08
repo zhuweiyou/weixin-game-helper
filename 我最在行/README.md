@@ -51,3 +51,5 @@ mongoimport -d wzzh -c quizzes --file ~/Downloads/questions.json --jsonArray --d
 ![爬虫终端日志](https://user-images.githubusercontent.com/8413791/35961286-1758defa-0ce8-11e8-81fc-a7dcc6a37685.png)
 
 ![数据库截图](https://user-images.githubusercontent.com/8413791/35961695-86e4a4e2-0ce9-11e8-8317-e2f2a31bb879.png)
+
+![擂台匹配日志](https://user-images.githubusercontent.com/8413791/35965116-d35a4060-0cf4-11e8-8e6a-dd853dacc8be.png)
