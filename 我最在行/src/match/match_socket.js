@@ -10,11 +10,14 @@ module.exports = class MatchSocket extends Socket {
     this.events = events
   }
 
-  onMessage ({data: {address}}) {
-    if (address) {
+  onMessage ({data}) {
+    console.log(data)
+    if (data.address) {
+      console.log('获取到房间地址', data.address)
+      this.client.close()
       new PkSocket({
         ...this.options,
-        address,
+        address: data.address,
         events: this.events
       })
     }
