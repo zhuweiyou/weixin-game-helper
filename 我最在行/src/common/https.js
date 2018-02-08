@@ -4,6 +4,7 @@ const APPID = 'wx75152d01bd4220d1'
 const VERSION = 15
 const BASE_URL1 = 'https://puzzle-gateway.zaih.com'
 const BASE_URL2 = 'https://puzzle.zaih.com'
+const BASE_URL3 = 'https://apis-puzzle-new.zaih.com'
 
 module.exports = class Https {
   constructor ({access_token, account_id}) {
@@ -16,6 +17,10 @@ module.exports = class Https {
         jwt: `Bearer ${access_token}`
       }
     })
+  }
+
+  unfinishedSeasons () {
+    return this.get(`${BASE_URL3}/pbcp/cache/unfinished_seasons`)
   }
 
   booking ({theme_id, player_id}) {
