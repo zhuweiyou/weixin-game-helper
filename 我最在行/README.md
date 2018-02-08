@@ -42,4 +42,4 @@ mongoimport -d tnwz -c quizzes --file ~/Downloads/questions.json --jsonArray --d
 
 遇到题库里没有的题，程序会随机选一个答案提交，并将正确答案入库（所以尽量全的题库，才能保证胜率）
 
-你只需要关注终端打印的信息即可，如果有报错，请提 issue 反馈我们
+你只需要关注终端打印的信息即可，如果有报错，请提 issue 反馈给我们
