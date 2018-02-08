@@ -1,4 +1,4 @@
-const QuestionModel = require('../database/question-model')
+const QuestionModel = require('../common/question-model')
 
 module.exports = async (socket, data) => {
   // 两个人题目一样，所以只要大号记就好

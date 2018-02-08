@@ -1,5 +1,16 @@
-const Https = require('./https')
-const Socket = require('./socket')
+const Https = require('../common/https')
+const Socket = require('../common/socket')
+const events = {
+  event_battle_result: require('./event_battle_result'),
+  event_battle_score: require('./event_battle_score'),
+  event_battle_start: require('./event_battle_start'),
+  event_owner_leave: require('./event_owner_leave'),
+  event_preemptive_score: require('./event_preemptive_score'),
+  event_room_full: require('./event_room_full'),
+  event_round_result: require('./event_round_result'),
+  event_someone_join: require('./event_someone_join'),
+  event_someone_leave: require('./event_someone_leave')
+}
 
 async function joinRoom (player, master = false) {
   const https = new Https(player)
@@ -36,6 +47,7 @@ module.exports = async players => {
     ...room,
     type: 'pk',
     address: rooms[0].address,
-    theme_id: rooms[0].theme_id
+    theme_id: rooms[0].theme_id,
+    events
   }))
 }
