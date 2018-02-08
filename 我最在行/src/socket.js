@@ -1,7 +1,7 @@
 const {w3cwebsocket: WebSocket} = require('websocket')
 const querystring = require('querystring')
 const events = {
-  event_someone_join: require('./events/event_someone_join')
+  event_someone_join: require('./event_someone_join')
 }
 
 module.exports = class Socket {
