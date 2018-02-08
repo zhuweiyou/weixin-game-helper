@@ -1,4 +1,4 @@
-const Socket = require('../common/socket')
+const Socket = require('./socket')
 const querystring = require('querystring')
 
 module.exports = class PkSocket extends Socket {
@@ -20,6 +20,6 @@ module.exports = class PkSocket extends Socket {
   }
 
   onOpen () {
-    console.log('[onOpen]', `${this.player_id} 连接成功`)
+    console.log('[onOpen]', `${this.player_id} 打开连接`)
   }
 }

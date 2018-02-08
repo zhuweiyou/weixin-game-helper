@@ -12,7 +12,7 @@ module.exports = class Socket {
   }
 
   onOpen () {
-    console.log('[onOpen]', `连接成功`)
+    console.log('[onOpen]', `打开连接`)
   }
 
   onClose ({reason}) {

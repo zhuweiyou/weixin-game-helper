@@ -7,9 +7,9 @@ const events = {
 }
 
 module.exports = async player => {
-  const room = await game(player, {match: true})
   new MatchSocket({
-    ...room,
+    options: await game(player, {match: true}),
     events
   })
 }
+

@@ -18,6 +18,7 @@ module.exports = async (player, {master = false, match = false, theme = 0} = {})
     dan: danGrade.dan,
     grade: danGrade.grade,
     star: danGrade.star,
+    type: match ? 'match' : 'pk',
     master
   }
   if (master) {

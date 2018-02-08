@@ -1,4 +1,4 @@
-const PkSocket = require('./pk_socket')
+const PkSocket = require('../common/pk_socket')
 const game = require('../common/game')
 const events = {
   event_battle_score: require('./event_battle_score'),
@@ -14,7 +14,6 @@ module.exports = async players => {
   ])
   rooms.map(room => new PkSocket({
     ...room,
-    type: 'pk',
     address: rooms[0].address,
     theme_id: rooms[0].theme_id,
     events
