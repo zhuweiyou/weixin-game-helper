@@ -1,4 +1,4 @@
 module.exports = (socket, data) => {
-  // 出了分数，下一局准备
-  socket.send({event: 'event_ready'})
+  // 出了分数，重新匹配
+  console.log('单局匹配结束')
 }

@@ -12,7 +12,7 @@ module.exports = class Socket {
   }
 
   onOpen () {
-    console.log('[onOpen]', `打开连接`)
+    console.log('[onOpen]', '打开连接')
   }
 
   onClose ({reason}) {
@@ -25,6 +25,7 @@ module.exports = class Socket {
       data = JSON.parse(data)
       this.events[data.event](this, data)
     } catch (e) {}
+    return data
   }
 
   onError (error) {
