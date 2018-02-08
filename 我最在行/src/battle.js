@@ -18,8 +18,13 @@ module.exports = async players => {
   const selfDanGrades = await https.selfDanGrades({theme_id})
   console.log(selfDanGrades)
 
+  // 获取 WSS 地址
+  const player_id = player1.account_id
+  const {address} = await https.booking({theme_id, player_id})
+
   const socket = new Socket({
-    player_id: player1.account_id,
+    address,
+    player_id,
     avatar: accountsSelf.avatar,
     level: accountsSelf.level,
     type: 'pk',
