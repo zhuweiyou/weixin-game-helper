@@ -1,4 +1,4 @@
-const {WebSocketClient} = require('websocket')
+const {client: WebSocketClient} = require('websocket')
 const querystring = require('querystring')
 
 module.exports = class Socket {
@@ -15,5 +15,10 @@ module.exports = class Socket {
       grade,
       owner_id: player_id
     })}`)
+    this.socket.on('message', this.onMessage.bind(this))
+  }
+
+  onMessage (message) {
+    console.log(message)
   }
 }
