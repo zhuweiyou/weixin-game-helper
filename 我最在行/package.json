@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "ca": "anyproxy-ca",
+    "crawl": "node src/crawl.js",
+    "robot": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/robot.js"
+  },
+  "dependencies": {
+    "anyproxy": "^4.0.4",
+    "axios": "^0.17.1",
+    "mongoose": "^4.13.9"
+  }
+}
