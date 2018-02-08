@@ -1,4 +1,4 @@
-const Socket = require('./socket')
+const Socket = require('../common/socket')
 const querystring = require('querystring')
 
 module.exports = class PkSocket extends Socket {

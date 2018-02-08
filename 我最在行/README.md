@@ -38,8 +38,16 @@ mongoimport -d tnwz -c quizzes --file ~/Downloads/questions.json --jsonArray --d
 
 复制返回的 `access_token` 和 `account_id`，填入 [src/robot.js](src/robot.js) 中
 
+再修改其中的 `theme` 为你要答题的分类索引，比如 0 为全能王
+
 执行 `npm run robot` 开始智能答题，答题过程是全自动的
 
 遇到题库里没有的题，程序会随机选一个答案提交，并将正确答案入库（所以尽量全的题库，才能保证胜率）
 
 你只需要关注终端打印的信息即可，如果有报错，请提 issue 反馈给我们
+
+## 截图
+
+![爬虫终端日志](https://user-images.githubusercontent.com/8413791/35961286-1758defa-0ce8-11e8-81fc-a7dcc6a37685.png)
+
+![数据库截图](https://user-images.githubusercontent.com/8413791/35961695-86e4a4e2-0ce9-11e8-8317-e2f2a31bb879.png)

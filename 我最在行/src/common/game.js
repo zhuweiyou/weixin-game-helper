@@ -1,13 +1,13 @@
 const Https = require('./https')
 
-module.exports = async (player, {master = false, match = false}) => {
+module.exports = async (player, {master = false, match = false, theme = 0} = {}) => {
   const https = new Https(player)
   // 获取用户信息
   const accountsSelf = await https.accountsSelf()
   // 获取题库分类
   const challenges = await https.challenges()
-  // 获取某个分类下的信息。比如 [0] 是 “全能王”
-  const {theme_id} = challenges[0]
+  // 获取某个分类下的信息
+  const {theme_id} = challenges[theme]
   const selfDanGrades = await https.selfDanGrades({theme_id})
   const ret = {
     theme_id,
