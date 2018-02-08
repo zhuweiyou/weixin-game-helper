@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "crawl": "node src/crawl.js",
+    "robot": "node src/robot.js"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "mongoose": "^4.13.9",
+    "websocket": "^1.0.25"
+  }
+}
