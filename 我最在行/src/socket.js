@@ -1,5 +1,8 @@
 const {w3cwebsocket: WebSocket} = require('websocket')
 const querystring = require('querystring')
+const events = {
+  event_someone_join: require('./events/event_someone_join')
+}
 
 module.exports = class Socket {
   constructor ({address, player_id, avatar, level, type, theme_id, token, dan, grade, master}) {
@@ -27,12 +30,16 @@ module.exports = class Socket {
     console.log('[onOpen]', this.master)
   }
 
-  onClose (reasonCode, description) {
-    console.log('[onClose]', reasonCode, description)
+  onClose ({reason}) {
+    console.log('[onClose]', reason)
   }
 
   onMessage ({data}) {
-    console.log('[onMessage]', data)
+    try {
+      console.log('[onMessage]', data)
+      data = JSON.parse(data)
+      events[data.event](this, data)
+    } catch (e) {}
   }
 
   onError (error) {

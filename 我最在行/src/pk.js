@@ -33,15 +33,9 @@ module.exports = async players => {
     joinRoom(players[1])
   ])
   return rooms.map(room => new Socket({
-    master: room.master,
-    address: rooms[0].address,
-    player_id: room.player_id,
-    avatar: room.avatar,
-    level: room.level,
+    ...room,
     type: 'pk',
-    theme_id: rooms[0].theme_id,
-    token: room.token,
-    dan: room.dan,
-    grade: room.grade
+    address: rooms[0].address,
+    theme_id: rooms[0].theme_id
   }))
 }
