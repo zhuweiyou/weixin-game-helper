@@ -17,7 +17,7 @@ const QuestionSchema = new mongoose.Schema({
   }
 })
 
-QuizSchema.pre('save', function (next) {
+QuestionSchema.pre('save', function (next) {
   if (this.isNew) {
     this.meta.createdAt = this.meta.updatedAt = Date.now()
   } else {
