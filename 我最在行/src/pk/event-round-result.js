@@ -1,4 +1,5 @@
 const QuestionModel = require('../common/question-model')
+/* eslint-disable camelcase */
 const event_battle_start = require('./event-battle-start')
 
 module.exports = async (socket, data) => {
@@ -16,4 +17,3 @@ module.exports = async (socket, data) => {
   // 除了返回结果，也会同时返回下一题的题目，处理方式跟 star 一致
   event_battle_start(socket, data)
 }
-

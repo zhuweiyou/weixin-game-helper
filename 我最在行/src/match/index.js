@@ -9,6 +9,7 @@ const events = {
 
 module.exports = player => {
   async function start () {
+    /* eslint-disable no-new */
     new MatchSocket({
       options: await game(player, {match: true}),
       events
@@ -18,4 +19,3 @@ module.exports = player => {
   eventbus.on('start', start)
   start()
 }
-
