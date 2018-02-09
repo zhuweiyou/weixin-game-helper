@@ -1,5 +1,5 @@
-const QuestionModel = require('../common/question_model')
-const event_battle_start = require('./event_battle_start')
+const QuestionModel = require('../common/question-model')
+const event_battle_start = require('./event-battle-start')
 
 module.exports = async (socket, data) => {
   // 两个人题目一样，所以只要大号记就好

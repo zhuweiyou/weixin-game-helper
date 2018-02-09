@@ -1,6 +1,6 @@
 const querystring = require('querystring')
 const Socket = require('../common/socket')
-const PkSocket = require('../common/pk_socket')
+const PkSocket = require('../common/pk-socket')
 
 module.exports = class MatchSocket extends Socket {
   constructor ({options, events}) {

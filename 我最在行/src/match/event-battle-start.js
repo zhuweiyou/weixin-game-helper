@@ -1,4 +1,4 @@
-const QuestionModel = require('../common/question_model')
+const QuestionModel = require('../common/question-model')
 const random = require('../common/random')
 
 module.exports = async (socket, data) => {

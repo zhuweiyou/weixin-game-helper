@@ -1,10 +1,10 @@
-const MatchSocket = require('./match_socket')
+const MatchSocket = require('./match-socket')
 const game = require('../common/game')
 const eventbus = require('./eventbus')
 const events = {
-  event_battle_score: require('./event_battle_score'),
-  event_battle_start: require('./event_battle_start'),
-  event_round_result: require('./event_round_result')
+  event_battle_score: require('./event-battle-score'),
+  event_battle_start: require('./event-battle-start'),
+  event_round_result: require('./event-round-result')
 }
 
 module.exports = player => {
