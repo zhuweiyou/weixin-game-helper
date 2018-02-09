@@ -54,4 +54,5 @@ mongoimport -d wzzh -c quizzes --file ~/Downloads/questions.json --jsonArray --d
 
 ![擂台匹配日志](https://user-images.githubusercontent.com/8413791/35965116-d35a4060-0cf4-11e8-8e6a-dd853dacc8be.png)
 
-![这是用一天的体力刷的](https://user-images.githubusercontent.com/8413791/35967458-ea4f49b2-0cfb-11e8-9526-5a46147ecd2f.png)
+![冲榜截图](https://user-images.githubusercontent.com/8413791/36008475-67a7fb3a-0d82-11e8-87cc-b637b6971307.png)
+
