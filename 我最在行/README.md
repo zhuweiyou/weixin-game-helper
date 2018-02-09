@@ -12,7 +12,7 @@
 
 **抓请求之前，请完全删除小程序，重新搜索小程序名字进入。因为你之前登录过，后续抓不到登录请求了**
 
-### 爬取题库 
+### 爬取题库
 
 > 爬题思路：不断进行好友对战获取题目，随意提交答案会返回正确答案，存入数据库，重复的忽略
 
@@ -24,15 +24,15 @@
 
 如果出现带 `leave` 单词的提示，说明上一局是异常退出的。只要关掉脚本，重新再运行就好了。
 
-爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](questions.json)（9.2k 个题目，持续更新） 
+爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](questions.json)（9.2k 个题目，持续更新）
 
 数据库名为 `wzzh`，导入命令，注意你的文件路径
 
 ```bash
-mongoimport -d wzzh -c quizzes --file ~/Downloads/questions.json --jsonArray --drop
+mongoimport -d wzzh -c questions --file ~/Downloads/questions.json --jsonArray --drop
 ```
 
-### 答题辅助 
+### 答题辅助
 
 用你要答题的号登录游戏，抓登录的请求 `https://puzzle-gateway.zaih.com/pauthp/jwt`
 
