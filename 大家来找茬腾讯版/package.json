@@ -1,11 +1,11 @@
 {
   "scripts": {
     "ca": "anyproxy-ca",
-    "start": "anyproxy --intercept --ignore-unauthorized-ssl --rule=src/index.js",
+    "start": "anyproxy --intercept --ignore-unauthorized-ssl --ws-intercept --rule=src/index.js",
     "test": "node test/index.js"
   },
   "dependencies": {
-    "anyproxy": "^4.0.4",
+    "anyproxy": "^4.0.6",
     "canvas-prebuilt": "^1.6.5-prerelease.1",
     "fs-extra": "^5.0.0"
   }
