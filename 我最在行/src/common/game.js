@@ -14,6 +14,7 @@ module.exports = async (player, {master = false, match = false, theme = 0} = {})
     avatar: accountsSelf.avatar,
     level: accountsSelf.level,
     player_id: player.account_id,
+    owner_id: player.account_id,
     token: player.access_token,
     dan: danGrade.dan,
     grade: danGrade.grade,

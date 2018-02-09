@@ -2,21 +2,12 @@ const Socket = require('./socket')
 const querystring = require('querystring')
 
 module.exports = class PkSocket extends Socket {
-  constructor ({address, player_id, avatar, level, type, theme_id, token, dan, grade, master, events}) {
-    const wss = `${address}&${querystring.stringify({
-      player_id,
-      avatar,
-      level,
-      type,
-      theme_id,
-      token,
-      dan,
-      grade,
-      owner_id: player_id
-    })}`
-    super({wss, events})
-    this.master = master
-    this.player_id = player_id
+  constructor ({options, events}) {
+    const address = options.address
+    delete options.address
+    super({wss: `${address}&${querystring.stringify(options)}`, events})
+    this.master = options.master
+    this.player_id = options.player_id
   }
 
   onOpen () {

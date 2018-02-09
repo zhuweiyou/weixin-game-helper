@@ -13,9 +13,11 @@ module.exports = async players => {
     game(players[1])
   ])
   rooms.map(room => new PkSocket({
-    ...room,
-    address: rooms[0].address,
-    theme_id: rooms[0].theme_id,
+    options: {
+      ...room,
+      address: rooms[0].address,
+      theme_id: rooms[0].theme_id
+    },
     events
   }))
 }
