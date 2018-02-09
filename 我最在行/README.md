@@ -24,7 +24,7 @@
 
 如果出现带 `leave` 单词的提示，说明上一局是异常退出的。只要关掉脚本，重新再运行就好了。
 
-爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](questions.json)（11.6k 个题目，持续更新）
+爬题需要一定的时间，也可以直接导入[我爬好的题库 MongoShell BSON(.json)](questions.json)（12.2k 个题目，持续更新）
 
 数据库名为 `wzzh`，导入命令，注意你的文件路径
 
