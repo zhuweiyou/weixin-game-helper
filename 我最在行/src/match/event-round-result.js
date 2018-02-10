@@ -1,5 +1,5 @@
 const QuestionModel = require('../common/question-model')
-/* eslint-disable camelcase */
+// eslint-disable-next-line camelcase
 const event_battle_start = require('./event-battle-start')
 
 module.exports = async (socket, data) => {

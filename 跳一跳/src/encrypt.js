@@ -18,4 +18,3 @@ exports.decrypt = (text, key) => {
   const bytes = CryptoJS.AES.decrypt(text, key, {iv})
   return CryptoJS.enc.Utf8.stringify(bytes)
 }
-

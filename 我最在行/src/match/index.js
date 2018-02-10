@@ -9,7 +9,7 @@ const events = {
 
 module.exports = player => {
   async function start () {
-    /* eslint-disable no-new */
+    // eslint-disable-next-line no-new
     new MatchSocket({
       options: await game(player, {match: true}),
       events

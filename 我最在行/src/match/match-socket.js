@@ -13,7 +13,7 @@ module.exports = class MatchSocket extends Socket {
     const data = super.onMessage(options)
     if (data.address) {
       console.log('获取到房间地址', data.address)
-      /* eslint-disable no-new */
+      // eslint-disable-next-line no-new
       new PkSocket({
         options: {
           ...this.options,

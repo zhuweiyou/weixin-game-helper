@@ -9,7 +9,7 @@ module.exports = {
     } catch (e) {}
     if (requestDetail.url.indexOf('/minapp/answer/question/') !== -1) {
       if (data.question) {
-        //匹配出正确答案
+        // 匹配出正确答案
         data.question.forEach(value => {
           const answer = value.answers[value.right]
           console.log(value.title + '答案:' + answer)

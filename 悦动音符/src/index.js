@@ -10,7 +10,7 @@ const fs = require('fs-extra')
     return
   }
   JSON.parse(data.toString())
-    .filter(({is_request}) => is_request)
+    .filter(({is_request}) => is_request) // eslint-disable-line camelcase
     .forEach(({music_id, score}) => request('https://mp.weixin.qq.com/wxagame/wxagame_settlement', {
       stage_id: music_id,
       score_info: [{

@@ -27,7 +27,7 @@ module.exports = async ({session_id, score}) => {
     }]
   })
 
-  const [userInfo, friendsScore, init] = await Promise.all([
+  await Promise.all([
     request.post('/wxagame_getuserinfo'),
     request.post('/wxagame_getfriendsscore'),
     request.post('/wxagame_init', {version: 9})
@@ -42,7 +42,7 @@ module.exports = async ({session_id, score}) => {
     touchList.push([Math.round(100 + Math.random() * 200), Math.round(300 + Math.random() * 200)])
   })
 
-  return await request.post('/wxagame_settlement', {
+  return request.post('/wxagame_settlement', {
     action_data: encrypt({
       score,
       times: 666,

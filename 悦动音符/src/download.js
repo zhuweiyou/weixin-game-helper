@@ -11,7 +11,7 @@ const request = require('./request')
   const data = res.music.map(({title, music_id}) => ({
     title,
     music_id,
-    score: 3588,//推荐分数
+    score: 3588, // 推荐分数
     is_request: true
   }))
   await fs.writeFile('data/songs.json', JSON.stringify(data, null, 2))

@@ -1,19 +1,22 @@
 const fs = require('fs-extra')
 const Canvas = require('canvas-prebuilt')
 const e = require('./e')
-const r = require('./r')
+// const r = require('./r')
 
 function decryptFile (id, data) {
-  for (let key = getKey(id), i = 0; i < data.length; i += key.length)
-    for (let j = 0; i + j < data.length && j < key.length; ++j)
+  for (let key = getKey(id), i = 0; i < data.length; i += key.length) {
+    for (let j = 0; i + j < data.length && j < key.length; ++j) {
       data[i + j] ^= key[j]
+    }
+  }
   return data
 }
 
 function getKey (r) {
   r += 'QQGameZC'
-  for (var t = e.hash(r, !0), a = new ArrayBuffer(16), o = new Uint8Array(a), n = 0; n < 16; n++)
+  for (var t = e.hash(r, !0), a = new ArrayBuffer(16), o = new Uint8Array(a), n = 0; n < 16; n++) {
     o[n] = t.charCodeAt(n)
+  }
   return o
 }
 
@@ -44,4 +47,3 @@ function decrypt (id, data) {
 }
 
 module.exports = decrypt
-

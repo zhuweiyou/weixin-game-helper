@@ -7,4 +7,3 @@ const userid = ''
 const response = []
 
 response.forEach(({_id}) => request(userid, _id))
-

@@ -3,6 +3,7 @@ const axios = require('axios')
 module.exports = async ({session_id, newscore, level, baoshi, combo}) => {
   const appid = 'wx7a727ff7d940bb3f'
 
+  // eslint-disable-next-line camelcase
   const game_behav_list = [
     {key: 'newscore', value: newscore},
     {key: 'level', value: level},
@@ -12,7 +13,7 @@ module.exports = async ({session_id, newscore, level, baoshi, combo}) => {
 
   const sign = () =>
     game_behav_list
-      .reduce((ret, {key, value}) => ret += `_${key}:${value}`, appid)
+      .reduce((ret, {key, value}) => ret += `_${key}:${value}`, appid) // eslint-disable-line no-return-assign
       .split('')
       .reduce((ret, value) => (31 * ret + value.charCodeAt(0)) & 67108863, 0)
 
