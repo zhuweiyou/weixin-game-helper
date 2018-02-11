@@ -32,7 +32,7 @@ module.exports = {
       }
       const search = `https://www.baidu.com/s?wd=${encodeURIComponent(this._findQuiz.quiz)}`
       console.log('[百度搜答案]', search)
-      exec(`open ${search}`)
+      exec(`${/^win/.test(process.platform) ? 'start' : 'open'} ${search}`)
     } else if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
       // 提交完答案，会返回正确答案，如果题库没有，就存起来
       if (!this._quiz) {
