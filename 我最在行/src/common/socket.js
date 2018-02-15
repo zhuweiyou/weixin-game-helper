@@ -1,9 +1,10 @@
 const {w3cwebsocket: WebSocket} = require('websocket')
+const headers = require('./headers')
 
 module.exports = class Socket {
   constructor ({wss, events}) {
     console.log(wss)
-    this.client = new WebSocket(wss)
+    this.client = new WebSocket(wss, null, null, headers)
     this.client.onopen = this.onOpen.bind(this)
     this.client.onclose = this.onClose.bind(this)
     this.client.onmessage = this.onMessage.bind(this)
