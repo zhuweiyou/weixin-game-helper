@@ -4,6 +4,7 @@ const eventbus = require('./eventbus')
 const events = {
   event_battle_score: require('./event-battle-score'),
   event_battle_start: require('./event-battle-start'),
+  event_no_puzzles: require('./event-no-puzzles'),
   event_round_result: require('./event-round-result')
 }
 
