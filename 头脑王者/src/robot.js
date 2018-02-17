@@ -8,6 +8,9 @@ module.exports = {
     if (requestDetail.host.indexOf('question.hortor.net') !== -1) {
       return true;
     }
+    if (requestDetail.host.indexOf('question-zh.hortor.net') !== -1) {
+      return true;
+    }
     return false;
   },
   * beforeSendRequest (requestDetail) {
