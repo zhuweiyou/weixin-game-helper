@@ -1,5 +1,5 @@
-const MatchSocket = require('./match-socket')
 const game = require('../common/game')
+const MatchSocket = require('./match-socket')
 const eventbus = require('./eventbus')
 const events = {
   event_battle_score: require('./event-battle-score'),
@@ -8,15 +8,9 @@ const events = {
   event_round_result: require('./event-round-result')
 }
 
-module.exports = player => {
-  async function start () {
-    // eslint-disable-next-line no-new
-    new MatchSocket({
-      options: await game(player, {match: true}),
-      events
-    })
-  }
-
-  eventbus.on('start', start)
+module.exports = async player => {
+  const options = await game({player, match: true})
+  const start = () => new MatchSocket({options, events})
+  eventbus.on('over', start)
   start()
 }

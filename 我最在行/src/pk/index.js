@@ -9,8 +9,8 @@ const events = {
 
 module.exports = async players => {
   const rooms = await Promise.all([
-    game(players[0], {master: true}),
-    game(players[1])
+    game({player: players[0], master: true}),
+    game({player: players[1]})
   ])
   rooms.map(room => new PkSocket({
     options: {

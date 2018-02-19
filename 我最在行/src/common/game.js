@@ -1,9 +1,8 @@
 const Https = require('./https')
 const timeout = require('./timeout')
 
-async function game (...args) {
+async function game ({player, master = false, match = false, theme = 0} = {}) {
   try {
-    const [player, {master = false, match = false, theme = 0} = {}] = args
     const https = new Https(player)
     // 获取用户信息
     const accountsSelf = await https.accountsSelf()
@@ -38,7 +37,7 @@ async function game (...args) {
     console.error(e)
     console.log('三秒后自动重试')
     await timeout(3000)
-    return game(...args)
+    return game({player, master, match, theme})
   }
 }
 
