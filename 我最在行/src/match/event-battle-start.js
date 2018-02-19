@@ -24,6 +24,7 @@ module.exports = async (socket, data) => {
         .shift()
         .index
     } catch (e) {
+      console.error(e)
       choice = random(0, 3)
       console.error('网上搜答案失败，随机答案', choice)
     }
