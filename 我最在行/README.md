@@ -42,7 +42,9 @@ mongoimport -d wzzh -c questions --file ~/Downloads/questions.json --jsonArray -
 
 执行 `npm run robot` 开始智能答题，答题过程是全自动的
 
-遇到题库里没有的题，程序会随机选一个答案提交，并将正确答案入库（所以尽量全的题库，才能保证胜率）
+如果本题不在题库里，会调用 [game-helper/answer](https://github.com/game-helper/answer) 搜索答案
+
+自动提交搜索结果数最多的答案（提高胜率），同时会自动将本题正确答案记录到题库中
 
 你只需要关注终端打印的信息即可，如果有报错，请提 issue 反馈给我们
 
