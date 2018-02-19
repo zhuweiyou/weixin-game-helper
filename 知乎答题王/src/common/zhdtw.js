@@ -2,8 +2,8 @@ const crypto = require('crypto')
 const axios = require('axios')
 const querystring = require('querystring')
 const sleep = require('./sleep')
-require('../database/mongo')
-const QuizModel = require('../database/quiz-model')
+require('./mongo')
+const QuizModel = require('./quiz-model')
 
 const request = axios.create({
   baseURL: 'https://question.hortor.net/',

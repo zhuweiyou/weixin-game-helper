@@ -1,6 +1,6 @@
-const Tnwz = require('./common/tnwz')
+const Zhdtw = require('./common/zhdtw')
 
-Tnwz.crawl([
+Zhdtw.crawl([
   {
     uid: '',
     token: ''

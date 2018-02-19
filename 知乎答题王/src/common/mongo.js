@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const db = mongoose.connect('mongodb://localhost/tnwz', {
+const db = mongoose.connect('mongodb://localhost/zhdtw', {
   useMongoClient: true,
   autoReconnect: true
 })

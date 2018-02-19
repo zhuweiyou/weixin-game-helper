@@ -1,13 +1,9 @@
 const exec = require('child_process').exec
-const Tnwz = require('./common/tnwz')
-const QuizModel = require('./database/quiz-model')
+const Zhdtw = require('./common/zhdtw')
+const QuizModel = require('./common/quiz-model')
 
 // AnyProxy 只支持 yield 语法，暂不支持 await
 module.exports = {
-  * beforeDealHttpsRequest (requestDetail) {
-    return ['question.hortor.net', 'question-zh.hortor.net']
-      .some(domain => requestDetail.host.indexOf(domain) !== -1)
-  },
   * beforeSendRequest (requestDetail) {
     // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
   },
@@ -25,7 +21,7 @@ module.exports = {
       // 从题库里找答案
       this._quiz = yield QuizModel.findOne({quiz: this._findQuiz.quiz})
       if (this._quiz) {
-        const answer = Tnwz.transformAnswer(this._quiz, this._findQuiz) - 1
+        const answer = Zhdtw.transformAnswer(this._quiz, this._findQuiz) - 1
         const option = this._findQuiz.options[answer]
         this._findQuiz.options[answer] = '√ ' + option
         body.data = this._findQuiz
