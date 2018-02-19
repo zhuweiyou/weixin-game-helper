@@ -30,8 +30,6 @@ mongoimport -d tnwz -c quizzes --file ~/Downloads/quizzes.json --jsonArray --dro
 
 ### 答题辅助 
 
-暂时只支持 Android 设备，详情 [#10](https://github.com/zhuweiyou/weixin-game-helper/issues/10)
-
 执行 `npm run ca` 生成 RootCA，将生成的证书安装到手机上，并在手机上设置代理 IP（电脑的局域网 IP） 和 端口（8001）
 
 证书配置遇到困难可以看[这里](http://anyproxy.io/cn/#%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE)

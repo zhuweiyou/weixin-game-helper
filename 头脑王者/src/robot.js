@@ -2,16 +2,11 @@ const exec = require('child_process').exec
 const Tnwz = require('./common/tnwz')
 const QuizModel = require('./database/quiz-model')
 
-// AngProxy 只支持 yield 语法，暂不支持 await
+// AnyProxy 只支持 yield 语法，暂不支持 await
 module.exports = {
-  * beforeDealHttpsRequest(requestDetail) {
-    if (requestDetail.host.indexOf('question.hortor.net') !== -1) {
-      return true;
-    }
-    if (requestDetail.host.indexOf('question-zh.hortor.net') !== -1) {
-      return true;
-    }
-    return false;
+  * beforeDealHttpsRequest (requestDetail) {
+    return ['question.hortor.net', 'question-zh.hortor.net']
+      .some(domain => requestDetail.host.indexOf(domain) !== -1)
   },
   * beforeSendRequest (requestDetail) {
     // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
