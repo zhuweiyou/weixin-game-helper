@@ -1,4 +1,4 @@
-const exec = require('child_process').exec
+const answer = require('answer')
 const Zhdtw = require('./common/zhdtw')
 const QuizModel = require('./common/quiz-model')
 
@@ -8,10 +8,11 @@ module.exports = {
     // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
   },
   * beforeSendResponse (requestDetail, responseDetail) {
+    const response = responseDetail.response
     let data
     let body
     try {
-      body = JSON.parse(responseDetail.response.body.toString())
+      body = JSON.parse(response.body.toString())
       data = body.data
       // console.log('[response]', response)
     } catch (e) {}
@@ -24,15 +25,24 @@ module.exports = {
         const answer = Zhdtw.transformAnswer(this._quiz, this._findQuiz) - 1
         const option = this._findQuiz.options[answer]
         this._findQuiz.options[answer] = '√ ' + option
-        body.data = this._findQuiz
-        const response = Object.assign({}, responseDetail.response)
-        response.body = JSON.stringify(body)
         console.log('[题库有答案]', option)
-        return {response}
+      } else {
+        // 题库没有，调用 answer 模块去搜索
+        try {
+          const search = yield answer({
+            question: this._findQuiz.quiz,
+            options: this._findQuiz.options
+          })
+          // eslint-disable-next-line no-return-assign
+          search.forEach((s, i) => this._findQuiz.options[i] = `[${s}] ${this._findQuiz.options[i]}`)
+          console.log('[网上搜答案]', search)
+        } catch (e) {
+          console.error(e)
+        }
       }
-      const search = `https://www.baidu.com/s?wd=${encodeURIComponent(this._findQuiz.quiz)}`
-      console.log('[百度搜答案]', search)
-      exec(`${/^win/.test(process.platform) ? 'start' : 'open'} ${search}`)
+      body.data = this._findQuiz
+      response.body = JSON.stringify(body)
+      return {response}
     } else if (requestDetail.url.indexOf('/question/bat/choose') !== -1) {
       // 提交完答案，会返回正确答案，如果题库没有，就存起来
       if (!this._quiz) {

@@ -4,6 +4,7 @@
     "robot": "node src/robot.js"
   },
   "dependencies": {
+    "answer": "github:game-helper/answer",
     "axios": "^0.17.1",
     "mongoose": "^4.13.9",
     "websocket": "^1.0.25"

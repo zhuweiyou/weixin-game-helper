@@ -1,3 +1,4 @@
+const answer = require('answer')
 const QuestionModel = require('../common/question-model')
 const random = require('../common/random')
 
@@ -14,12 +15,20 @@ module.exports = async (socket, data) => {
     console.log('题库有答案', JSON.stringify(one))
     // 答题时，选项顺序可能会打乱，所以要找一下正确答案文字对应的索引值
     choice = data.options.findIndex(option => String(one.options[one.answer]) === String(option))
-    console.log('提交正确答案', choice, data.options[choice])
   } else {
-    console.log('题库没答案')
-    choice = random(0, 3)
-    console.log('提交随机答案', choice, data.options[choice])
+    try {
+      const results = await answer(data)
+      console.log('题库没答案，网上搜答案', results)
+      choice = results.map((result, index) => ({result, index}))
+        .sort((a, b) => b.result - a.result)
+        .shift()
+        .index
+    } catch (e) {
+      choice = random(0, 3)
+      console.error('网上搜答案失败，随机答案', choice)
+    }
   }
+  console.log('提交答案', choice, data.options[choice])
 
   // 把题目先暂存到内存中，等返回答案后，一块存数据库
   socket._question = {

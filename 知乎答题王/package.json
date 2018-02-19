@@ -5,6 +5,7 @@
     "robot": "anyproxy --intercept --ignore-unauthorized-ssl --ws-intercept --rule=src/robot.js"
   },
   "dependencies": {
+    "answer": "github:game-helper/answer",
     "anyproxy": "^4.0.6",
     "axios": "^0.17.1",
     "mongoose": "^4.13.9"

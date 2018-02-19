@@ -38,7 +38,9 @@ mongoimport -d zhdtw -c quizzes --file ~/Downloads/quizzes.json --jsonArray --dr
 
 答题时，如果该题在题库中，终端会输出正确答案，手机上正确答案前面会显示一个 `√`
 
-如果本题不在题库里，会自动打开百度搜索答案，并将本题正确答案记录到题库中
+如果本题不在题库里，会调用 [game-helper/answer](https://github.com/game-helper/answer) 搜索答案
+
+并在每个选项前面显示搜索结果的数量供自行决策（看下面的截图），同时会自动将本题正确答案记录到题库中
 
 ## 截图
 
@@ -48,7 +50,10 @@ mongoimport -d zhdtw -c quizzes --file ~/Downloads/quizzes.json --jsonArray --dr
       <img src="https://user-images.githubusercontent.com/8413791/35086936-551678b8-fc69-11e7-8e58-a75ad403ffde.png" alt="王者截图">
     </td>
     <td>
-      <img src="https://user-images.githubusercontent.com/8413791/35084177-a7642b58-fc5d-11e7-9774-10a0b17dc39c.png" alt="辅助截图">
+      <img src="https://user-images.githubusercontent.com/8413791/35084177-a7642b58-fc5d-11e7-9774-10a0b17dc39c.png" alt="正确答案截图">
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/8413791/36379519-e8f13226-15b9-11e8-84fb-ae219246e264.png" alt="推荐答案截图">
     </td>
   </tr>
 </table>
