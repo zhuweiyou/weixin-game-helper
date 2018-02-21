@@ -2,7 +2,7 @@
   "scripts": {
     "ca": "anyproxy-ca",
     "crawl": "node src/crawl.js",
-    "robot": "anyproxy --intercept --ignore-unauthorized-ssl --ws-intercept --rule=src/robot.js"
+    "robot": "anyproxy --rule=src/robot.js"
   },
   "dependencies": {
     "answer": "github:game-helper/answer",
