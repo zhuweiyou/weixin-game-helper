@@ -4,12 +4,9 @@ const QuizModel = require('./common/quiz-model')
 
 // AnyProxy 只支持 yield 语法，暂不支持 await
 module.exports = {
-  * beforeDealHttpsRequest(requestDetail) {
-    console.log(requestDetail.host);
-    if (requestDetail.host === 'question-zh.hortor.net:443') {
-      return true;
-    }
-    return false;
+  * beforeDealHttpsRequest (requestDetail) {
+    // console.log(requestDetail.host)
+    return requestDetail.host === 'question-zh.hortor.net:443'
   },
   * beforeSendRequest (requestDetail) {
     // 原先采用的是改数据发送，经测试发现会频繁的提示需要重新登录，所以改为只提示答案了
@@ -18,7 +15,6 @@ module.exports = {
     const response = responseDetail.response
     let data
     let body
-    
     if (requestDetail.url.indexOf('/question/bat/findQuiz') !== -1) {
       try {
         body = JSON.parse(response.body.toString())

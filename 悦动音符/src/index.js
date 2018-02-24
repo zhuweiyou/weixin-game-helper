@@ -19,6 +19,6 @@ const fs = require('fs-extra')
       }, {
         type: 1,
         score: 7
-      }],
+      }]
     }))
 })()

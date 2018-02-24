@@ -1,4 +1,4 @@
-const answer = require('answer')
+const {answer, maxIndex} = require('answer')
 const QuestionModel = require('../common/question-model')
 const random = require('../common/random')
 
@@ -17,12 +17,9 @@ module.exports = async (socket, data) => {
     choice = data.options.findIndex(option => String(one.options[one.answer]) === String(option))
   } else {
     try {
-      const results = await answer(data)
-      console.log('题库没答案，网上搜答案', results)
-      choice = results.map((result, index) => ({result, index}))
-        .sort((a, b) => b.result - a.result)
-        .shift()
-        .index
+      const result = await answer(data)
+      console.log('题库没答案，网上搜答案', result)
+      choice = maxIndex(result)
     } catch (e) {
       console.error(e)
       choice = random(0, 3)
