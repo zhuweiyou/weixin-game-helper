@@ -17,8 +17,8 @@ module.exports = async (socket, data) => {
     choice = data.options.findIndex(option => String(one.options[one.answer]) === String(option))
   } else {
     try {
-      const {result, maxIndex} = await search(data)
-      choice = maxIndex
+      const {result, index} = await search(data)
+      choice = index
       console.log('题库没答案，网上搜答案', result)
     } catch (e) {
       console.error(e)

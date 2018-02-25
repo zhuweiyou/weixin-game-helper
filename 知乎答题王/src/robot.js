@@ -33,12 +33,12 @@ module.exports = {
       } else {
         // 题库没有，网上搜索
         try {
-          const {result} = yield search({
+          const {result, index} = yield search({
             question: this._findQuiz.quiz,
             options: this._findQuiz.options
           })
           // eslint-disable-next-line no-return-assign
-          result.forEach((s, i) => this._findQuiz.options[i] = `[${s}] ${this._findQuiz.options[i]}`)
+          result.forEach((s, i) => this._findQuiz.options[i] = `${index === i ? '√ ' : ''}[${s}] ${this._findQuiz.options[i]}`)
           console.log('[网上搜答案]', result)
         } catch (e) {
           console.error(e)
