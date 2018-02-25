@@ -9,7 +9,7 @@ const events = {
 }
 
 module.exports = async player => {
-  const options = await game({player, match: true})
+  const options = await game({player, match: true, theme: player.theme})
   const start = () => new MatchSocket({options, events})
   eventbus.on('over', start)
   start()
