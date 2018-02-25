@@ -1,4 +1,4 @@
-const answer = require('answer')
+const search = require('search')
 const Zhdtw = require('./common/zhdtw')
 const QuizModel = require('./common/quiz-model')
 
@@ -33,13 +33,13 @@ module.exports = {
       } else {
         // 题库没有，调用 answer 模块去搜索
         try {
-          const search = yield answer({
+          const {result} = yield search({
             question: this._findQuiz.quiz,
             options: this._findQuiz.options
           })
           // eslint-disable-next-line no-return-assign
-          search.forEach((s, i) => this._findQuiz.options[i] = `[${s}] ${this._findQuiz.options[i]}`)
-          console.log('[网上搜答案]', search)
+          result.forEach((s, i) => this._findQuiz.options[i] = `[${s}] ${this._findQuiz.options[i]}`)
+          console.log('[网上搜答案]', result)
         } catch (e) {
           console.error(e)
         }
