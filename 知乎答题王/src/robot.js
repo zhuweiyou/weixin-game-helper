@@ -31,7 +31,7 @@ module.exports = {
         this._findQuiz.options[answer] = '√ ' + option
         console.log('[题库有答案]', option)
       } else {
-        // 题库没有，调用 answer 模块去搜索
+        // 题库没有，网上搜索
         try {
           const {result} = yield search({
             question: this._findQuiz.quiz,
