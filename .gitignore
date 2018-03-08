@@ -2,5 +2,6 @@
 node_modules
 .DS_Store
 package-lock.json
+yarn.lock
 悦动音符/data/songs.json
 大家来找茬腾讯版/data/*.png
