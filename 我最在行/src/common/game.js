@@ -8,6 +8,7 @@ async function game ({player, master = false, match = false, theme = 0} = {}) {
     const accountsSelf = await https.accountsSelf()
     // 获取题库分类
     const challenges = await https.challenges()
+    console.log('[challenges]', challenges)
     // 获取某个分类下的信息
     const {theme_id} = challenges[theme]
     const danGrade = (await https.selfDanGrades({theme_id}))[0] || {}
