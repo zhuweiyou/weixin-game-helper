@@ -1,0 +1,6 @@
+python3-xlib==0.15; sys_platform=='linux'
+pywin32==223; sys_platform=='win32'
+PyUserInput==0.1.11
+numpy==1.14.2
+Pillow==5.1.0
+pyscreenshot==0.4.2
