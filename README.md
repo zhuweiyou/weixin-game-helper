@@ -15,8 +15,6 @@
 
 > 仅供学习交流之用，请勿用于非法用途，否则产生的一切后果自行承担
 
-由于个人时间原因，本项目由 [@clouduan](https://github.com/clouduan) 主力维护。
-
 ## 教程
 
 - [如何抓取微信小程序 HTTPS 请求](https://github.com/game-helper/weixin/issues/6)
