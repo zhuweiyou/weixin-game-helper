@@ -1,0 +1,14 @@
+<import src="/game/widgets/popup.wxml"></import>
+<view class="container fill">
+    <image class="branding" id="branding" src="https://www.gstatic.com/qilin/drawtogether/Branding-GoogleAI.png"></image>
+    <image class="avatar" id="splashAvatar" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+    <span id="splashNickName"></span>
+    <span id="splashLevel">...</span>
+    <div class="container">
+        <div class="unauthorized-text">{{appName}}需要你的公开头像和昵称</div>
+        <button bindgetuserinfo="handleGetUserInfo" class="button-large" hoverClass="button-hover" openType="getUserInfo">
+            <span class="center">去授权</span>
+        </button>
+    </div>
+</view>
+<template is="popup" data="{{...popupData}}"></template>

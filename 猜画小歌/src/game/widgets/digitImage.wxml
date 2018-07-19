@@ -1,0 +1,11 @@
+<template name="digitImage">
+    <view class="digitImage {{themeScheme}}">
+        <view class="bubble-container">
+            <view class="bubble-title">{{title}}</view>
+            <image src="{{hundredsDigitSrc}}" wx:if="{{showHundredsDigit}}"></image>
+            <image src="{{tensDigitSrc}}" wx:if="{{showTensDigit}}"></image>
+            <image src="{{onesDigitSrc}}"></image>
+            <span class="bubble-suffix">{{suffix}}</span>
+        </view>
+    </view>
+</template>

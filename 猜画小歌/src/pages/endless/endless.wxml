@@ -1,0 +1,28 @@
+<import src="/game/widgets/clock.wxml"></import>
+<import src="/game/widgets/endlessCardsView.wxml"></import>
+<import src="/game/widgets/machineView.wxml"></import>
+<div class="{{levelTheme}} {{animClass}}" id="content-wrapper">
+    <div class="covercard container {{targetTheme}} {{transitioning}}" id="theme-trans-card"></div>
+    <div id="gameview">
+        <div class="word-container">
+            <text id="level-text">{{level||'第 1 题'}}</text>
+            <text id="word-text">{{word||'矿泉水'}}</text>
+        </div>
+        <div class="topbar">
+            <template is="clock" data="{{...clockData}}"></template>
+            <button bindtap="buttonClear" class="button" id="button-clear">
+                <view class="icon icon-undo"></view>
+            </button>
+        </div>
+    </div>
+    <view class="{{clockData.isCountingDown?'shake':''}}" style="padding:0px 20px 0px 20px;">
+        <canvas bindtouchend="touchend" bindtouchmove="touchmove" bindtouchstart="touchstart" canvasId="drawingCanvas" class="water-jar drawingCanvas {{drawingCanvasClass}}" disableScroll="true" style="width: {{drawingCanvasWidth}}px; height: {{drawingCanvasHeight}}px;">
+            <div class="water" id="water" style="transform: translate(0px, {{100-clockData.timeElapsedPercent}}%)">
+                <image class="water_wave water_wave_back {{drawingCanvasClass}}" src="/assets/img/water_wave_back.svg"></image>
+                <image class="water_wave water_wave_front {{drawingCanvasClass}}" src="/assets/img/water_wave_front.svg"></image>
+            </div>
+        </canvas>
+    </view>
+    <template is="machineView" data="{{...machineViewData}}"></template>
+    <template is="cardsView" data="{{...cardsViewData}}"></template>
+</div>

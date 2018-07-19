@@ -1,0 +1,153 @@
+page {
+    background-image: url("https://www.gstatic.com/qilin/drawtogether/Leaderboard-02.png");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+}
+
+.ranking-avatar {
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.ranking-row {
+    width: 100%;
+    display: table;
+    padding: 8px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.avatar-container {
+    width: 13%;
+}
+
+.no-crown-container {
+    padding-left: 9px;
+}
+
+.crown-container {
+    position: relative;
+    height: 60px;
+}
+
+.ranking-avatar-large {
+    position: absolute;
+    top: 12px;
+    left: 1px;
+    height: 49px;
+}
+
+.ranking-crown {
+    height: 72px;
+    width: 56px;
+    position: absolute;
+    top: -8px;
+}
+
+.ranking-nickname-container {
+    padding: 10px;
+    width: 40%;
+}
+
+.ranking-nickname-container .ranking-nickname {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ranking-nickname-container .ranking-level {
+    display: block;
+    font-size: 12px;
+}
+
+.ranking-stats-container {
+    width: 20%;
+    font-size: 14px;
+    vertical-align: middle;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 90px;
+}
+
+.user-ranking-stats-container {
+    text-align: left;
+    width: 60%;
+    font-size: 14px;
+    vertical-align: middle;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 90px;
+}
+
+.ranking-round {
+    display: block;
+}
+
+.ranking-duration {
+    display: block;
+    font-size: 14px;
+}
+
+.ranking-row view {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.ranking-index {
+    vertical-align: middle;
+    width: 8%;
+    font-family: 'Google Sans';
+    font-size: 20px;
+}
+
+.ranking-index.index-1 {
+    color: #FBBC04;
+}
+
+.ranking-index.index-2 {
+    color: #BDC1C6;
+}
+
+.ranking-index.index-3 {
+    color: #B06000;
+}
+
+#user-avatar {
+    height: 50px;
+    width: 50px;
+    left: 20px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.user-nickname {
+    display: block;
+}
+
+.user-rank {
+    display: block;
+}
+
+.user-rank-digit {
+    font-size: 22px;
+}
+
+.user-total-count {
+    position: absolute;
+    font-size: 14px;
+    right: 50px;
+    bottom: 40px;
+}
+
+.ranking-header {
+    z-index: 100;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #E8E8E8;
+}

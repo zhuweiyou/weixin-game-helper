@@ -1,0 +1,152 @@
+<template name="cardsView">
+    <div class="cards">
+        <div class="notransition covercard {{tutorialCardClass}} " id="tutorial-card">
+            <div class="card-container fill">
+                <div class="card-row">
+                    <div class="card-text {{tutorialCardTextClass}}">
+                        <view class="tutorial-title">猜画小歌是一个你画图，小歌去猜的小程序</view>
+                        <view class="tutorial-title">在20秒内成功让小歌猜出即可进入下一题</view>
+                        <button bindtap="buttonStartGame" bindtouchstart="playClickSound" class="button-large button-primary" style="margin-top: 30px;">
+                            <span class="center">马上开始</span>
+                        </button>
+                        <view class="tutorial-suffix">打开声音，效果更佳～</view>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="covercard container {{gameOverCardClass}} {{theme}}" id="gameover-card">
+            <div class="card-text" style="margin-top:-30%;">
+                <text class="card-title">人工智能未能猜出</text>
+                <text class="card-content">{{word}}</text>
+            </div>
+        </div>
+        <div class="covercard {{endCardZeroPassClass}} container" id="fail-card">
+            <div class="container">
+                <text class="card-title" style="margin-bottom:30px;">手滑了吗？再玩一次</text>
+                <button bindtap="playAgain" bindtouchstart="playClickSound" class="button-large button-secondary">
+                    <span class="center">再玩一次</span>
+                </button>
+                <button bindtap="backToHome" bindtouchstart="playClickSound" class="button-large button-primary">
+                    <span class="center">回到首页</span>
+                </button>
+            </div>
+        </div>
+        <div class=" covercard {{newRoundBreakCardClass}}" id="newround-break-card">
+            <div class="card-container">
+                <div class="card-row " style="padding:20px;">
+                    <view class="bubble-container">
+                        <text class="level-text">Level</text>
+                        <image mode="aspectFit" src="{{tensDigitSrc}}" wx:if="{{showTensDigit}}"></image>
+                        <image mode="aspectFit" src="{{onesDigitSrc}}"></image>
+                    </view>
+                    <div class="card-text" style="margin-bottom:20px;font-size: 16px; ">
+                        <view class="card-congrat-text">恭喜升级！</view>
+                        <view>
+                            <view>你已总共解锁了{{passedWordsCount}}个词</view>
+                        </view>
+                    </div>
+                </div>
+                <div class="card-row button-container">
+                    <button bindtap="buttonNewRoundReady" bindtouchstart="playClickSound" class="button-large button-primary">
+                        <span class="center">继续挑战</span>
+                    </button>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="covercard {{finalCongratCardClass}}" id="final-congrat-card">
+            <div class="card-container fill">
+                <div class="container">
+                    <image mode="aspectFit" src="https://www.gstatic.com/qilin/drawtogether/final-level-spaceman.png"></image>
+                    <text class="card-title">恭喜你完成了全部挑战！</text>
+                    <text class="card-subtitle">你帮助人工智能猜出了全部{{wordCount}}个词</text>
+                    <button bindtap="showFinalEndCard" bindtouchstart="playClickSound" class="button-large button-primary">
+                        <span class="center">查看结果页</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="covercard end-card-container {{endCardClass}}">
+            <div class="{{theme}} bg"></div>
+            <div class="bg-bottom"></div>
+            <div class="card-container {{theme}}" id="end-card">
+                <view class="card-row resultContainer" wx:if="{{showChallenge}}">
+                    <view class="flex-item" style="display:flex; flex-direction:row; justify-content:space-around;">
+                        <view class="flex-item">
+                            <view class="flex-item">
+                                <image class="crown" src="{{'/assets/img/crown.png'}}" wx:if="{{!isChallengeSucceed}}"></image>
+                                <view style="height:42px;" wx:else></view>
+                            </view>
+                            <view class="flex-item">
+                                <image class="avatar avatar-white-border" src="{{creator.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+                            </view>
+                            <view class="flex-item" style="font-size:16px;">完成{{creatorResult.round_pass}}张</view>
+                            <view class="flex-item" style="font-size:12px;">{{creatorResult.prettyDuration}}</view>
+                        </view>
+                        <view class="flex-item" style="border-left: 3px solid #4285F4; margin: 10px 50px 10px 50px;"></view>
+                        <view class="flex-item">
+                            <image class="crown" src="{{'/assets/img/crown.png'}}" wx:if="{{isChallengeSucceed}}"></image>
+                            <view style="height:42px;" wx:else></view>
+                            <view class="flex-item" style="z-index:1;">
+                                <image class="avatar" src="{{challenger.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+                            </view>
+                            <view class="flex-item " style="font-size:16px;">完成{{challengerResult.round_pass}}张</view>
+                            <view class="flex-item " style="font-size:12px;">{{challengerResult.prettyDuration}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="result-header" wx:else>
+                    <view class="result-text-container">
+                        <template is="digitImage" data="{{...digitImageData}}"></template>
+                        <image class="new-record" src="/assets/img/new_record.png" wx:if="{{isNewRecord}}"></image>
+                    </view>
+                    <template is="progress" data="{{...progressData}}"></template>
+                </view>
+                <image class="header-shadow" src="/assets/img/resultpage-header-shadow.png"></image>
+                <div class="callout bottom-left" wx:if="{{showTooltip}}">点击卡片看看别人怎么画</div>
+                <div class="card-row" style="width:100%;">
+                    <div id="timesup-drawings-wrapper">
+                        <view id="timesup-drawings-wrapper-view" wx:if="{{rounds}}">
+                            <view bindtap="showRoundDetails" data-index="{{index}}" data-rounds="rounds" style="" wx:for="{{rounds}}">
+                                <div class="timesup-round button button-drawing">
+                                    <button class="timesup-drawing">
+                                        <image class="timesup-drawing-detail" mode="aspectFit" src="{{item.drawingSvg}}"></image>
+                                        <image src="/assets/icon/new-collection.svg" style="width:50px; height: 50px; top: 0;position: absolute;right: 0;" wx:if="{{item.isNewCollection}}"></image>
+                                        <image class="recognition-icon" src="/assets/img/right.svg" wx:if="{{item.recognized}}"></image>
+                                        <image class="recognition-icon" src="/assets/img/wrong.svg" wx:else></image>
+                                        <div class="timesup-drawing-status">{{item.wordZhCn}}</div>
+                                    </button>
+                                    <div class="timesup-drawing-neighbor"></div>
+                                </div>
+                            </view>
+                        </view>
+                    </div>
+                </div>
+                <div class="card-footer"></div>
+                <div class="card-row {{theme}}" id="endcardButtons">
+                    <button bindtap="playAgain" bindtouchstart="playClickSound" class="button-large button1">
+                        <image src="/assets/icon/result-again.svg"></image>
+                        <span class="center">再玩一次</span>
+                    </button>
+                    <button bindtap="shareGameResult" bindtouchstart="playClickSound" class="button-large button2" openType="share">
+                        <image src="/assets/icon/result-share.svg"></image>
+                        <span class="center">分享给好友</span>
+                    </button>
+                    <button bindtap="saveToAlbum" bindtouchstart="playClickSound" class="button-large button3">
+                        <image src="/assets/icon/moment-icon.svg"></image>
+                        <span class="center">分享至朋友圈</span>
+                    </button>
+                </div>
+            </div>
+            <div bindtap="dismissSavedPhoto" bindtouchstart="playClickSound" class="saved-photo-dialog {{savedPhotoDialogClass}}">
+                <image catchtap="catchTap" class="saved-photo-image" mode="aspectFit" src="{{savedPhotoImageSrc}}"></image>
+                <button class="round-button">
+                    <span class="center">已保存至相册，记得分享哦</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
+<import src="/game/widgets/digitImage.wxml"></import>
+<import src="/game/widgets/newRoundCard.wxml"></import>
+<import src="/game/widgets/progress.wxml"></import>

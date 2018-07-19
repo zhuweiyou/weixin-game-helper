@@ -1,0 +1,14 @@
+
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design-mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="report-bug" transform="translate(-308.000000, -244.000000)">
+            <g id="ic_close_googblue_24dp" transform="translate(303.000000, 239.000000)">
+                <polygon id="Shape" fill="#174EA6" fill-rule="nonzero" points="19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12"></polygon>
+                <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

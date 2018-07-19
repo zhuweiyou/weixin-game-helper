@@ -1,0 +1,20 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/user/user",
+        "pages/webview/webview",
+        "pages/endless/endless",
+        "pages/roundDetail/roundDetail",
+        "pages/collection/collection",
+        "pages/ranking/ranking",
+        "pages/challenge/challenge",
+        "pages/singleImageInvitation/singleImageInvitation",
+        "pages/unauthorized/unauthorized"
+    ],
+    "window": {
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "white",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "猜画小歌"
+    }
+}

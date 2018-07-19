@@ -1,0 +1,78 @@
+page {
+    background-image: url("https://www.gstatic.com/qilin/drawtogether/Mycard-03.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    margin: 5px;
+}
+
+button span {
+    font-size: 14px;
+}
+
+button image {
+    width: 24px;
+    height: 24px;
+    margin: -3px 5px 0 0;
+    vertical-align: middle;
+}
+
+#round-detail-card .round-details-title {
+    font-size: 10px;
+}
+
+#round-detail-card #round-details-word {
+    margin-left: 20px;
+}
+
+#round-detail-card .round-details-text {
+    margin: 4px 0;
+}
+
+#round-detail-card #round-details-subtitle-not-recognized,#round-detail-card #round-details-subtitle-recognized {
+    position: relative;
+    top: -31px;
+}
+
+#round-drawing-wrapper {
+    background: #FFFFFF;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30);
+    border-radius: 3px;
+    width: 300px;
+    height: 190px;
+}
+
+#round-drawing-text {
+    width: 58%;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#round-drawing {
+    margin: auto;
+    width: 200px;
+    height: 120px;
+    display: block;
+}
+
+.share-button {
+    border: 0px;
+    background-color: white;
+    color: #ffc107;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

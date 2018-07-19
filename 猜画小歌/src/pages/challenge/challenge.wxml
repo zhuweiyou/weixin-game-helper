@@ -1,0 +1,29 @@
+<import src="/game/widgets/digitImage.wxml"></import>
+<div class="{{themeScheme}} bg"></div>
+<div class="bg-bottom"></div>
+<div class="container" id="challenge-page">
+    <div class="{{themeScheme}} challenge-header">
+        <image class="avatar avatar-white-border" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+        <template is="digitImage" data="{{...digitImageData}}"></template>
+        <button bindtap="buttonStartDrawing" bindtouchstart="playClickSound" class="button-large button-primary">
+            <span class="center">开始作画</span>
+        </button>
+    </div>
+    <div class="card-row">
+        <div id="timesup-drawings-wrapper">
+            <view id="timesup-drawings-wrapper-view" wx:if="{{rounds}}">
+                <view data-index="{{index}}" data-rounds="rounds" style="" wx:for="{{rounds}}" wx:for-index="idx">
+                    <div class="timesup-round button button-drawing-invitation-page" wx:if="{{item.recognized}}">
+                        <button class="timesup-drawing">
+                            <image class="timesup-drawing-detail" mode="aspectFit" src="{{item.drawingSvg}}"></image>
+                            <div class="timesup-drawing-status">{{item.wordZhCn}}</div>
+                        </button>
+                        <div class="timesup-drawing-neighbor"></div>
+                    </div>
+                </view>
+            </view>
+        </div>
+    </div>
+    <image class="appName" src="https://www.gstatic.com/qilin/drawtogether/Branding-Appname.png"></image>
+    <image class="branding" src="https://www.gstatic.com/qilin/drawtogether/Branding-GoogleAI.png"></image>
+</div>

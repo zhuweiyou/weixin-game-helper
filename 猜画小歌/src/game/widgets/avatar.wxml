@@ -1,0 +1,9 @@
+<template name="avatar">
+    <view class="flex-item">
+        <view class="flex-item">
+            <image class="avatar" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+        </view>
+        <view class="flex-item" style="font-size:16px;">{{user.nickName}}</view>
+        <view class="flex-item" style="font-size:16px;">{{user.levelStr||'Lv.1 涂鸦新手'}}</view>
+    </view>
+</template>

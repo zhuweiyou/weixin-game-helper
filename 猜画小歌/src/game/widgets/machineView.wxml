@@ -1,0 +1,9 @@
+<template name="machineView">
+    <view class="{{machineViewClass}}" id="speechbubble-wrapper">
+        <view id="machine-speechbubble">
+            <text id="machine-speechbubble-secondary">{{txtB}}</text>
+            <text id="machine-speechbubble-primary">{{txtA||'...'}}</text>
+        </view>
+        <view id="machine-speechbubble-tip"></view>
+    </view>
+</template>
