@@ -1,0 +1,35 @@
+<import src="/game/widgets/popup.wxml"></import>
+<view class="container">
+    <view id="round-drawing-text" wx:if="{{recognized}}">在默默地观察大家的画作之后，小歌学会了{{roundDetailWord}}的画法</view>
+    <view id="round-drawing-text" wx:else>小歌思考了很久，还是猜不出来呢</view>
+    <image id="round-drawing" mode="aspectFit" src="{{myDrawing}}"></image>
+    <div class="button-container">
+        <button bindtouchstart="playClickSound" class="button-large button-primary" openType="share">
+            <image bindtap="shareImageToChat" src="/assets/img/share-icon.png"></image>
+            <span class="center">分享给好友</span>
+        </button>
+        <button bindtap="shareImageToMoment" bindtouchstart="playClickSound" class="button-large button-primary">
+            <image src="/assets/icon/moment-icon.svg"></image>
+            <span class="center">分享至朋友圈</span>
+        </button>
+    </div>
+</view>
+<div class="card-row" style="width: 100%" wx:if="{{recognized}}">
+    <div id="gallery-wrapper">
+        <view bindlongpress="handleLongPress" data-id="{{item.record_id}}" data-index="{{index}}" wx:for="{{gallerys}}">
+            <view class="gallery-drawing drawing">
+                <image mode="aspectFit" src="{{item.svg}}" style="width: 100px; height: 100px; background-color:white;"></image>
+            </view>
+        </view>
+    </div>
+</div>
+<div wx:else>
+    <view class="fail-gallery-text">成功画出这个词汇，就可以看大家的画作了</view>
+</div>
+<div bindtap="dismissSavedPhoto" bindtouchstart="playClickSound" class="saved-photo-dialog {{savedPhotoDialogClass}}">
+    <image catchtap="catchTap" class="saved-photo-image" mode="aspectFit" src="{{savedPhotoImageSrc}}"></image>
+    <button class="round-button">
+        <span class="center">已保存至相册，记得分享哦</span>
+    </button>
+</div>
+<template is="popup" data="{{...popupData}}"></template>

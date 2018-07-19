@@ -1,0 +1,43 @@
+<view class="flex-wrap header" id="ranking-header">
+    <text bindtap="tapPersonalBestTab" class="{{personalBestClass}}">最佳画手</text>
+    <text bindtap="tapVsTab" class="{{vsClass}}" wx:if="{{vsModeEnabled}}">对战排名</text>
+</view>
+<view class="ranking-list disable-horizontal-scroll" wx:if="{{selectedTab=='personalBest'}}">
+    <view class="ranking-list-header ranking-row">
+        <text class="ranking-index">名次</text>
+        <text class="ranking-round">通关数</text>
+        <text class="ranking-duration">耗时</text>
+    </view>
+    <view class="ranking-row" wx:for="{{rankings}}" wx:for-item="ranking" wx:key="objectId">
+        <view class="ranking-index digit">{{index+1}}</view>
+        <view class="avatar-container">
+            <image class="ranking-avatar avatar-no-border" src="{{ranking.player.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+        </view>
+        <view class="ranking-nickname-container">
+            <view class="ranking-nickname">{{ranking.player.nickName}}</view>
+            <view class="ranking-level">{{ranking.levelStr}}</view>
+        </view>
+        <view class="ranking-round digit">{{ranking.personalBestCount}}</view>
+        <view class="ranking-duration digit"> {{ranking.prettyDuration}}</view>
+    </view>
+</view>
+<view class="ranking-list disable-horizontal-scroll" wx:if="{{selectedTab=='vs'}}">
+    <view class="ranking-list-header ranking-row">
+        <text class="ranking-index">名次</text>
+        <text class="ranking-round">对局数</text>
+        <text class="ranking-duration">胜率</text>
+    </view>
+    <view class="ranking-row" wx:for="{{rankings}}" wx:for-item="ranking" wx:key="objectId">
+        <view class="ranking-index digit">{{index+1}}</view>
+        <view class="avatar-container">
+            <image class="ranking-avatar avatar-no-border" src="{{ranking.player.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+        </view>
+        <view class="ranking-nickname-container">
+            <view class="ranking-nickname">{{ranking.player.nickName}}</view>
+            <view class="ranking-level">{{ranking.levelStr}}</view>
+        </view>
+        <view class="ranking-round digit">{{ranking.vsGameCount}}</view>
+        <view class="ranking-duration digit">{{ranking.vsWinRate}}%</view>
+    </view>
+</view>
+<view id="ranking-footer"> 我的世界排名 {{userRank}}</view>

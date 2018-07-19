@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_no_sound_black_24dp</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_no_sound_black_24dp" transform="translate(-5.000000, -5.000000)">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="20 6.52313625 18.4768638 5 12.5 10.9768638 6.52313625 5 5 6.52313625 10.9768638 12.5 5 18.4768638 6.52313625 20 12.5 14.0231362 18.4768638 20 20 18.4768638 14.0231362 12.5"></polygon>
+        </g>
+    </g>
+</svg>

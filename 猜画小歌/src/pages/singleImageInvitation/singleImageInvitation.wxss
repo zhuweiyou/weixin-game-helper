@@ -1,0 +1,91 @@
+page {
+    background-image: url("http://www.gstatic.com/qilin/drawtogether/single-image-invitation-page-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    height: 100%;
+}
+
+.avatar-container {
+    height: 70px;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+}
+
+.round-info {
+    margin: 10px;
+    font-size: 18px;
+    max-width: 80%;
+    overflow: wrap-text;
+}
+
+.round-info .word-zh-cn {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.round-info span {
+    display: block;
+}
+
+.canvas {
+    padding: 10px;
+    width: 80%;
+    height: 180px;
+    min-height: 25%;
+    max-height: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0px 7px 0 rgba(0,0,0,0.5);
+    background: white;
+    position: relative;
+}
+
+.drawing {
+    width: 90%;
+    height: 90%;
+    margin-top: 2%;
+}
+
+.button-large.button-secondary {
+    margin-top: 5%;
+    display: block;
+}
+
+.button-large {
+    margin-bottom: 5px;
+}
+
+.recognition-icon {
+    width: 20%;
+    height: 20%;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+.appName {
+    width: 128px;
+    height: 34px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.branding {
+    width: 158px;
+    height: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+
+<svg width="60px" height="63px" viewBox="0 0 60 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Design-mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="game-result" transform="translate(-121.000000, -342.000000)">
+            <g id="Group-9-Copy-2" transform="translate(16.000000, 342.000000)">
+                <path d="M103.469754,5.06988607 C123.309482,8.98301247 138.322493,10.9395757 148.508785,10.9395757 C158.695077,10.9395757 167.0154,8.98301247 173.469754,5.06988607 L192.480389,39.9746347 C169.618057,32.5688216 153.073365,28.5151733 142.846312,27.8136896 C132.619259,27.1122059 116.731201,28.5217924 95.1821382,32.0424492 L103.469754,5.06988607 Z" id="Rectangle-22" fill="#23C1E0" transform="translate(143.831264, 22.522260) rotate(42.000000) translate(-143.831264, -22.522260) "></path>
+                <text id="新解锁" transform="translate(147.246501, 22.009949) rotate(44.000000) translate(-147.246501, -22.009949) " font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#FFFFFF">
+                    <tspan x="129.246501" y="26.5099492">新解锁</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

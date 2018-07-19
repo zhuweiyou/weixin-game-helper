@@ -1,0 +1,34 @@
+<import src="/game/widgets/progress.wxml"></import>
+<view class="sticky">
+    <view>
+        <image class="logo-image" mode="aspectFit" src="/assets/img/DrawTogether_logo.png"></image>
+    </view>
+    <view class="container avatar-container">
+        <image class="avatar avatar-medium" id="collection-splashAvatar" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+        <text>{{userLevel}}</text>
+        <template is="progress" data="{{...progressData}}"></template>
+        <text style="margin-top:10px;" wx:if="{{hasMore}}">你一共解锁了{{totalNum}}个词汇，继续加油吧</text>
+        <text style="margin-top:10px;width: 80%" wx:else>你已经完成了全部画作，让小歌叹为观止呢！期待我们推出更多新词吧！</text>
+        <text style="margin-top:10px;" wx:if="{{showTooltip}}">点击小图看看大家的画作</text>
+    </view>
+</view>
+<div class="gallery-drawing drawing" id="gallery-wrapper" style="padding-top: 10px;">
+    <view wx:for="{{bucketIndex}}" wx:for-index="idx">
+        <div id="gallery-wrapper">
+            <view bindtap="handleCollectionTap" data-index="{{index}}" wx:for="{{words[idx]}}">
+                <div class="container" style="width:50px; padding: 10px; overflow:hidden;" wx:if="{{showAll||item.status==true}}">
+                    <image class="collection-card" src="{{item.drawingSvg}}" wx:if="{{item.status==true}}"></image>
+                    <image class="collection-card" src="/assets/icon/lock.svg" wx:elif="{{item.status==false}}"></image>
+                    <image class="collection-card" src="/assets/icon/lock.svg" wx:elif="{{item.status==undefined}}"></image>
+                    <div>
+                        <div style="font-size:13px;" wx:if="{{showWord}}">
+                            <text wx:if="{{item.status==true}}"> {{item.wordZhCn}} </text>
+                            <text style="color:grey;" wx:elif="{{item.status==false}}"> {{item.wordZhCn}} </text>
+                            <text wx:else> ??? </text>
+                        </div>
+                    </div>
+                </div>
+            </view>
+        </div>
+    </view>
+</div>

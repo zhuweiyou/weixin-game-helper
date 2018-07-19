@@ -1,0 +1,11 @@
+<template name="newRoundCard">
+    <div class="covercard {{newRoundCardClass}}" id="newround-card">
+        <div class="card-container fill">
+            <div class="card-row" style="top:30%; position:absolute;">
+                <text style="display:block; font-size: 0.8em; margin-bottom: 20px;">第 {{level}} 题</text>
+                <text style="font-weight:700; font-size: 2em;">{{word}}
+</text>
+            </div>
+        </div>
+    </div>
+</template>

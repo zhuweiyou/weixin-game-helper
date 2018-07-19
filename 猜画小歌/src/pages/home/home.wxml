@@ -1,0 +1,38 @@
+<import src="/game/widgets/popup.wxml"></import>
+<view class="container root fill {{animateClass}}">
+    <image class="branding" id="branding" src="https://www.gstatic.com/qilin/drawtogether/Branding-GoogleAI.png"></image>
+    <image class="avatar" id="splashAvatar" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+    <span id="splashNickName">{{user.nickName}}</span>
+    <span id="splashLevel"> {{userLevel||'...'}}</span>
+    <view wx:if="{{finishedLoading}}">
+        <div class="container" wx:if="{{loadSuccess}}">
+            <button bindtap="handlePlayEndless" bindtouchstart="playClickSound" class="button-large button-secondary button1">
+                <span class="center">开始作画</span>
+            </button>
+            <button bindtap="handlePlayDouble" bindtouchstart="playClickSound" class="button-large button-primary" wx:if="{{vsModeEnabled}}">
+                <span class="center">1V1对战</span>
+            </button>
+            <button bindtap="handleShowRanking" bindtouchstart="playClickSound" class="button-large button-primary button2">
+                <span class="center">排行榜</span>
+            </button>
+            <button bindtap="handleShowCollection" bindtouchstart="playClickSound" class="button-large button-primary button3">
+                <span class="center">我的画作</span>
+            </button>
+            <button bindtap="handleShowSetting" bindtouchstart="playClickSound" class="button-large button-label button-primary button4">
+                <span class="center">设置</span>
+            </button>
+        </div>
+        <div class="container" wx:else>
+            <span class="center">抱歉，小歌很忙，请稍后再试</span>
+            <span class="center">({{errAction}})</span>
+            <button bindtap="handleReload" bindtouchstart="playClickSound" class="button-large button-primary button3" style="margin-top:20px">
+                <span class="center">重试</span>
+            </button>
+        </div>
+    </view>
+</view>
+<view class="footer" wx:if="{{showFooter}}">
+    <span class="version">v{{versionCode||'0.0.0'}} </span>
+    <span class="env-string"> {{env}}</span>
+</view>
+<template is="popup" data="{{...popupData}}"></template>

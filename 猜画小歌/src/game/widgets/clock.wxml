@@ -1,0 +1,5 @@
+<template name="clock">
+    <div class="{{clockClass}} topRight" id="clock">
+        <text class="{{clockClass}}" id="clock-simple-text">{{countDownText}}</text>
+    </div>
+</template>

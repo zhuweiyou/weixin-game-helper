@@ -1,0 +1,27 @@
+<div class="container" wx:if="{{loaded}}">
+    <view class="avatar-container">
+        <image class="avatar" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+    </view>
+    <view class="round-info" wx:if="{{recognized}}">
+        <span>{{user.nickName}}画了{{duration}}秒</span>
+        <span>小歌就猜出了</span>
+        <span class="word-zh-cn">{{wordZhCn}}</span>
+    </view>
+    <view class="round-info" wx:else>
+        <span>大家来评评理</span>
+        <span>{{user.nickName}}画的是不是</span>
+        <span class="word-zh-cn">{{wordZhCn}}</span>
+    </view>
+    <view class="canvas">
+        <image class="drawing" mode="aspectFit" src="{{drawingSvg}}"></image>
+        <image class="recognition-icon" src="/assets/img/right.svg" wx:if="{{recognized}}"></image>
+        <image class="recognition-icon" src="/assets/img/wrong.svg" wx:else></image>
+    </view>
+    <button bindtap="buttonStartDrawing" bindtouchstart="playClickSound" class="button-large button-secondary">
+        <span class="center">开始作画</span>
+    </button>
+    <view class="branding-container">
+        <image class="appName" src="https://www.gstatic.com/qilin/drawtogether/Branding-Appname.png"></image>
+        <image class="branding" src="https://www.gstatic.com/qilin/drawtogether/Branding-GoogleAI.png"></image>
+    </view>
+</div>

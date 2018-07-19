@@ -1,0 +1,47 @@
+<template name="popup">
+    <div catchtouchmove="true" class="popup-wrapper" wx:if="{{show}}">
+        <div class="popup-box container" wx:if="{{theme=='default'}}">
+            <div class="popup-text">{{message}}</div>
+            <div class="popup-buttons">
+                <button bindtap="buttonAccept" class="button-large">
+                    <span class="center">{{buttonTextAccept}}</span>
+                </button>
+                <button bindtap="buttonReject" class="button-large">
+                    <span class="center">{{buttonTextReject}}</span>
+                </button>
+            </div>
+        </div>
+        <div class="popup-alert-box container" wx:elif="{{theme=='alert'}}">
+            <image bindtap="buttonClose" class="icon-image position-top-right" src="/assets/icon/close.svg"></image>
+            <image class="icon-image" src="/assets/icon/alert.svg"></image>
+            <div class="popup-title margin-15">{{title}}</div>
+            <div class="popup-message">{{message}}</div>
+            <div class="popup-buttons">
+                <view bindtap="buttonAccept" class="text-button">{{buttonTextAccept}}</view>
+            </div>
+        </div>
+        <div class="popup-alert-box container" wx:elif="{{theme=='selection'}}">
+            <image bindtap="buttonClose" class="icon-image position-top-right" src="/assets/icon/close.svg"></image>
+            <view class="selection-rows">
+                <view class="selection-row">
+                    <image class="selection-row-icon" src="/assets/icon/music.svg"></image>
+                    <text class="selection-row-text">音效</text>
+                    <switch bindchange="switchSoundEffect" checked="{{!mute}}" class="selection-row-switch" color="#174EA6"></switch>
+                </view>
+            </view>
+            <div class="selection-footer">
+                <text bindtap="buttonDeleteAccount" class="text-button">删除账户</text>
+                <text bindtap="buttonTermOfService" class="text-button">服务条款</text>
+                <text bindtap="buttonPrivacyPolicy" class="text-button">隐私条款</text>
+                <button openType="feedback" style="left: 0px; transition: none; margin-top: -7px">
+                    <text class="text-button">发送反馈</text>
+                </button>
+            </div>
+            <image class="icon-bottle" src="/assets/icon/bottle.svg"></image>
+            <image class="icon-grass" src="/assets/icon/grass.svg"></image>
+        </div>
+        <div wx:elif="{{theme=='webview'}}">
+            <web-view bindmessage="onWebViewMessage" src="{{webViewUrl}}"></web-view>
+        </div>
+    </div>
+</template>

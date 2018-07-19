@@ -1,0 +1,45 @@
+<view class="ranking-header disable-horizontal-scroll">
+    <view>
+        <image class="logo-image" mode="aspectFit" src="/assets/img/DrawTogether_logo.png"></image>
+    </view>
+    <view class="ranking-row">
+        <view class="ranking-index}"> {{userRank||'--'}} </view>
+        <view class="avatar-container">
+            <view class="no-crown-container">
+                <image class="ranking-avatar avatar-no-border" src="{{user.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+            </view>
+        </view>
+        <view class="ranking-nickname-container">
+            <view class="ranking-nickname">{{user.nickName}}</view>
+            <view class="ranking-level">{{userLevelStr}}</view>
+        </view>
+        <view class="ranking-stats-container">
+            <text class="ranking-round digit">{{endlessBestCount}}张</text>
+        </view>
+    </view>
+</view>
+<view class="disable-horizontal-scroll" wx:if="{{selectedTab=='personalBest'}}">
+    <view class="whiteBackground container" style="height:40px;  left:0; right:0; ">
+        <text style="font-size:16px;">{{leaderboardTitle}}</text>
+    </view>
+    <view class="ranking-row" wx:for="{{rankings}}" wx:for-item="ranking" wx:key="objectId">
+        <view class="ranking-index index-{{index+1}}">{{index+1}}</view>
+        <view class="avatar-container">
+            <view class="crown-container" wx:if="{{index<3}}">
+                <image class="ranking-avatar-large avatar-no-border" src="{{ranking.player.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+                <image class="ranking-crown" src="/assets/icon/top{{index+1}}.svg"></image>
+            </view>
+            <view class="no-crown-container" wx:else>
+                <image class="ranking-avatar avatar-no-border" src="{{ranking.player.avatarUrl||'/assets/img/unknown.svg'}}"></image>
+            </view>
+        </view>
+        <view class="ranking-nickname-container">
+            <view class="ranking-nickname">{{ranking.player.nickName}}</view>
+            <view class="ranking-level">{{ranking.levelStr}}</view>
+        </view>
+        <view class="ranking-stats-container">
+            <text class="ranking-round digit">{{ranking.personalBestCount}}张</text>
+            <text class="ranking-duration digit"> {{ranking.prettyDuration}}</text>
+        </view>
+    </view>
+</view>

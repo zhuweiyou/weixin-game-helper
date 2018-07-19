@@ -1,0 +1,18 @@
+<template name="progress">
+    <view class="progress">
+        <text class="progress-text left">{{leftText}}</text>
+        <view class="progress-bar">
+            <view wx:if="{{theme=='outerspace'}}">
+                <image class="progress-bg" src="/assets/icon/progress_white.svg"></image>
+                <image class="progress-bg" mode="left" src="/assets/icon/progress_light.svg" style="width:{{percent}}%;"></image>
+            </view>
+            <view wx:else>
+                <image class="progress-bg" src="/assets/icon/progress_light.svg"></image>
+                <image class="progress-bg" mode="left" src="/assets/icon/progress_dark.svg" style="width:{{percent}}%;"></image>
+            </view>
+            <image class="progress-knob" src="/assets/icon/oval.svg" style="left:{{percent}}%"></image>
+            <text class="progress-text bottom" style="left: {{percent}}%;">{{progressText}}</text>
+        </view>
+        <text class="progress-text right">{{rightText}}</text>
+    </view>
+</template>
