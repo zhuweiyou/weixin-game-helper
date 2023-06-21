@@ -4,7 +4,7 @@
     "robot": "node src/robot.js"
   },
   "dependencies": {
-    "search": "github:game-helper/search",
+    "search": "github:zhuweiyou/weixin-game-helper-search",
     "axios": "^0.17.1",
     "mongoose": "^4.13.9",
     "websocket": "^1.0.25"

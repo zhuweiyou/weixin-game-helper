@@ -5,7 +5,7 @@
     "robot": "anyproxy --rule=src/robot.js"
   },
   "dependencies": {
-    "search": "github:game-helper/search",
+    "search": "github:zhuweiyou/weixin-game-helper-search",
     "anyproxy": "^4.0.6",
     "axios": "^0.17.1",
     "mongoose": "^4.13.9"

@@ -21,7 +21,3 @@
 - [如何安装 AnyProxy 证书](https://github.com/game-helper/weixin/issues/7)
 - [如何抓取登录请求拿到 session_id、openid](https://github.com/game-helper/weixin/issues/13)
 - [刷分之后手机上没有看到效果](https://github.com/game-helper/weixin/issues/17)
-
-## 捐赠
-
-[如果我们的项目对您有帮助，欢迎捐赠](https://github.com/game-helper/donate)
